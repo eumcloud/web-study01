@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 태그</title>
+    
+    
+    <style>
+        table{
+            width:75%;
+            height:250px;
+    
+        }
+        table th{
+            border: 1px solid orangered;
+            background: skyblue;
+            
+            text-align: center;
+            padding: 2px;
+            
+        }
+    </style>
+</head>
+    
+<body>
+    <p>
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width=150px height=150px >
+    </p>
+    <!-- table태그
+
+        <table>
+            전부다 열고 닫아준다.
+                tr은 행
+                th - header : 제목으로 사용
+                td - table data : 내용기입
+        </table>
+
+        *ps. CSS적용시 각 태그를 타깃하여 할 수도있고, 상위태그를 통해 일괄적용 할 수도 있다. Cascading 연습용으로 하자.
+        -->
+    <table border= 1 width=500 height=500 >
+        <tr><th> 제목1</th> <th>제목2</th> <th>제목3</th> 
+        </tr>
+        <tr><td>내용 </td><td>내용 </td><td>1</td>
+        </tr>
+        <tr><td>1</td><td>1</td><td>1</td>
+        </tr>
+    </table>
+<br><br>
+  <!-- 셀 합치기
+        colsapn 가로 병합
+        rowspan 세로 병합
+-->
+    
+      <table border= 1 width=500 height=500 >
+        <tr><th colspan="2"> 가로병합</th> <th>제목2</th>  
+        </tr>
+        <tr><td rowspan="2">세로병합 </td><td>내용 </td><td>내용</td>
+        </tr>
+        <tr><td>내용</td><td>내용</td>
+        </tr>
+    </table>
+<br><br>
+    
+    
+    <table border=1>
+        <thead><th>1</th><th>1</th><th>1</th><th>1</th></thead>
+        <tbody><tr><td>1</td><td colspan="2" rowspan="2" style="text-align:center;"><b>가로세로 병합</b></td><td>1</td></tr>
+        <tr><td></td><td></td></tr>
+        </tbody>
+        <tfoot><td>1</td><td>1</td><td>1</td><td>1</td></tfoot>
+    </table>
+
+</body>
+</html>  
+
+
