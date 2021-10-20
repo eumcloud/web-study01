@@ -19,12 +19,12 @@
         let a = window.location.href.split("?");
         console.log(a);
         
-        let b = a[1].split('='); <!--a배열안에 2번째 데이터 출력 -->
+        let b = a[1].split('&'); <!--a배열안에 2번째 데이터 출력 -->
         console.log(b);
         
         <!-- document는 HTML이다-->
         let root = document.querySelector('#root');
-        root.innerHTML = `${b[0]} 값은: ${b[1]}입니다. `
+        root.innerHTML = `입력값은 ${b[0]}와 ${b[1]}입니다. `
     </script>
   
 
