@@ -1,0 +1,155 @@
+/* css02.html 예제 */
+input[type=text]{
+    width:100%;
+    padding:12px 20px;
+    margin: 8px 0;
+    box-sizing:border-box;
+    background-color:#E6D281;
+}
+input[type=number]{
+    width:100%;
+    padding:12px 20px;
+    margin:8px 0;
+    box-sizing: border-box;
+    background-color:#C7F086;
+}
+
+/* css03.html 예제 */
+#parag{
+    text-align:center;
+    background-color:lemonchiffon;
+    color:black;
+}
+
+/* css04.html 예제 */
+.aright{
+    text-align:right;
+    background-color:greenyellow;
+    color:black;
+}
+
+/* css05.html 예제 */
+.header{
+    background-color: skyblue;
+}
+h1.header{
+    background-color:lemonchiffon;
+}
+div.header{
+    background-color:greenyellow;
+}
+/* css06.html 예제 */
+.p1{
+    font-family: 'Cou';
+}
+.p2{
+    font-family: ;
+}
+.p3{
+    font-family: ;
+}
+
+.normal{
+    font-style: normal;
+    font-weight: 500;
+    font-size:20px;
+}
+.italic{
+    font-style:italic;
+    font-weight:1000;
+    font-size:40px;
+}
+.oblique{
+    font-style:oblique;
+    font-size:60px;
+}
+
+/* css07.html 예제 - 구글폰트 한번 적용해보자 */
+.pr{
+    font-family: 'Nanum Pen Script', cursive;
+    font-size:50px;
+}
+/* css08.html 예제 - a태그 여러 유형들
+        a:link - 방문한 적 없는 기본링크
+        a:visited - 방문한 링크
+        a:hover - 마우스가 링크위에 올라갔을때
+        a:active -  링크를 클릭했을때 */
+a:link{color:orange;}
+a:visited{color:gold;}
+a:hover{color:greenyellow;}
+a:active{color:red;}
+
+/* css09.html 예제 
+- `.grid{  background-color : rgb(240,115,36); }`
+- `.hexid{ background-color : #F07324; }`
+- `.rgbaid{ background-color : rgb(230,82,34); }`
+- `.hexaid{ background-color : #E65222; }`*/
+.rgbid{
+    background-color : rgb(240,115,36); 
+}
+.hexid{
+    background-color : #F07324;
+}
+.rgbaid{
+    background-color : rgba(230,82,34,0.3); 
+}
+.hexaid{
+    background-color : hsla(9,100%,64%,0.5);
+}
+
+
+/* css10.html 예제 
+- background-color
+- background-image
+- background-position
+- background-repeat
+- background-
+*/
+body {
+    background-color: lemonchiffon;
+    /* background-image:url('../src/bgimg.jpg'); */
+    background-repeat:no-repeat;
+    background-position:left top;
+    background-attachment:fixed /*scroll*/;
+    background-size:920px ;
+    backface-visibility: hidden;    
+}
+
+div.bgfirst{
+    background-color:coral ;
+}
+div.bgsecond{
+    opacity:0.6;
+}
+div.bgsecond{
+    opacity:0.4;
+}
+div.bgthird{
+    opacity:-1;
+}
+
+/* css11.html 예제 
+- p.dotted{ border-style:dotted ;}
+- p.dashed { border-style: dashed; }
+- p.solid { border-style: solid; }
+- p.double { border-style: double; }
+- p.groove { border-style: groove; }
+- p.ridge { border-style: ridge; }
+- p.inset { border-style: inset; }
+- p.outset { border-style: outset; }
+- p.none { border-style: none; }
+- p.hidden { border-style: hidden; }
+- p.mixed { border-style: dotted dashed solid double;}
+*/
+p{font-size:40px;}
+p.dotted{ border-style:dotted ;}
+p.dashed { border-style: dashed; }
+p.solid { border-style: solid; }
+p.double { border-style: double; }
+p.groove { border-style: groove; }
+p.ridge { border-style: ridge; }
+p.inset { border-style: inset; }
+p.outset { border-style: outset; }
+p.none { border-style: none; }
+p.hidden { border-style: hidden; }
+p.mixed { border-style: dotted dashed solid double;}
