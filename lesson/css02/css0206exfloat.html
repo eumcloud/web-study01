@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>/*오버플로우가 현상이 안생김 */
+       *{ box-sizing: border-box;}
+       .box{ float: left; width: 33.33%; padding: 50px;}
+       
+       /*가상 클래스, 가상엘리먼트 */
+       .clearfix :: after{
+           content "";
+           clear: both;
+           display: table;
+       }
+    </style>
+    <title>FloatExample</title>
+</head>
+<body> 
+    <h1>Grid of Boxes </h1> <!-- 격자 박스 -->
+    <p>
+        Float Boxes side by side:
+    </p>
+  <div id="" class="clearfix"> </div>
+    <div class="box" style="background-color: #bbb;">
+        <p> Some Text inside the box.</p>
+    </div>
+    <div class="box" style="background-color: #ccc;">
+        <p> Some Text inside the box.</p>
+    </div>
+    <div class="box" style="background-color: #ddd;">
+        <p> Some Text inside the box.</p>
+    </div>
+        
+    
+    
+    
+
+</body>
+</html>  

@@ -1,0 +1,22 @@
+a:link, a:visited, a:active{ text-decoration:none;
+    color:black; 
+}a:hover{ text-decoration: underline red;}
+
+ul,li{ list-style:none; padding-left:0px; display:inline;}
+#NM_FAVORITE{}
+
+div#u_skip{display:none;}
+
+#header{display:inline-axis; position:static;}/*  axis flex grid table*/
+.group_nav{display:inline-axis;}
+.eg-flick-panel{position:absolute; right:15%; }
+div#search{position:relative; top:145px; margin-left:25%; display:inline-axis;}
+
+div.service_area{position:absolute; right:20%; top:70px;}
+legend{display:none;}
+
+div#promotion11{position:absolute; right:20%; top:100px;}
+
+.special_logo_link{display:none;} 
+.blind{display:none;} fieldset{border:0px;display:inline-axis;}
+input#query{width:474px;height:50px;} .ly_btn_area{display:none;}

@@ -13,21 +13,18 @@ input[type=number]{
     box-sizing: border-box;
     background-color:#C7F086;
 }
-
 /* css03.html 예제 */
 #parag{
     text-align:center;
     background-color:lemonchiffon;
     color:black;
 }
-
 /* css04.html 예제 */
 .aright{
     text-align:right;
     background-color:greenyellow;
     color:black;
 }
-
 /* css05.html 예제 */
 .header{
     background-color: skyblue;
@@ -106,7 +103,7 @@ a:active{color:red;}
 - background-
 */
 body {
-    background-color: lemonchiffon;
+    background-color: #EBC996;
     /* background-image:url('../src/bgimg.jpg'); */
     background-repeat:no-repeat;
     background-position:left top;
@@ -126,7 +123,7 @@ div.bgsecond{
 }
 div.bgthird{
     opacity:-1;
-}
+}https://s.pstatic.net/static/www/mobile/edit/20211020/mobile_233102168365.png
 
 /* css11.html 예제 
 - p.dotted{ border-style:dotted ;}
@@ -153,3 +150,65 @@ p.outset { border-style: outset; }
 p.none { border-style: none; }
 p.hidden { border-style: hidden; }
 p.mixed { border-style: dotted dashed solid double;}
+
+
+/* css0201.html 예제 */
+
+/* p {background-color:litepink;} */
+p.normal{ }
+p.round1{ border:solid 2px; border-radius: 2px skyblue; }
+p.round2{ border:solid 2px; border-radius: 5px skyblue;}
+p.round3{ border:solid 2px; border-radius: 10px skyblue;}
+
+div.boxing { background-color:; border:solid 3px skyblue;}
+div{ border: 3px solid grey; width:250px;height:250px;padding:25px;}
+
+/* css0202.html 예제 */
+div.static{
+    position: static;
+    float:left;
+  
+}
+div.relative{
+    width:100px;height:100px;
+    position: relative;    
+    left: 50px; top:50px;
+}
+div.absolute{
+      width:100px;height:100px;
+    position: absolute;
+    right: 0; 
+}
+div.fixed{
+    position: fixed; 
+    width:100px;height:100px;
+}
+    
+div.zindex{
+    position: fixed; 
+    top:400px;
+} img.zindexplus{width:100px;height:100px;}
+img.zindex.minus{width:100px;height:100px;}
+
+
+/* css0203.html예제 */
+img.lfloat{
+    float:left;
+}
+img.rfloat{
+    float:right;
+}
+/* css0204.html예제 */
+div.div1{
+    float:left;padding:10px; border:5px solid greenyellow;
+}.div2{padding:10px;} .div3{float:right; padding:10px; border:2px solid coral; } .div4{padding:10px; border:solid 3px red; clear:left;}
+
+div.attr{ }
+.clearfix{
+    overflow:auto; /* 라인에서 넘치는 경우 auto (자동정렬) */
+}
+
+
+li{
+    display: ;
+}

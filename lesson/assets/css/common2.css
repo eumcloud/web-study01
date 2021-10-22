@@ -1,0 +1,48 @@
+a:link{text-decoration:none;}
+a:visited{text-decoration:none;}
+ul,li{ list-style:none;padding:0px;}
+
+div{ margin:auto; padding:20px; }
+.center{ 
+    margin: auto;
+    width: 50%;
+    border: 5px solid greenyellow;
+    padding: 10px;
+}
+.center2{
+    padding:70px 0 ;
+    border: 5px solid green;
+    text-align:center;
+}
+
+img{ display:block; /*margin:auto; */}
+
+
+/* pseudoclass 예제 */
+div:hover{    
+    background-color:yellowgreen;
+}
+input:focus{
+    background-color: skyblue;
+}
+input:checked{
+    box-shadow: 3px red;
+    color:red;
+    width:100px; height:100px;
+}
+
+input[type=text]:enabled{
+    background-color: lightgray;
+    color: white;
+}
+input[type=text]:disabled{
+    background-color: lightgray;
+    color: white;
+}
+
+
+a:link{ color: green;}
+p i {
+    color:blue;
+}
+p a:link { color:red;}

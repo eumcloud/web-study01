@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <title>Without clearfix </title>
+</head>
+<body> <h1>Without clearfix </h1>
+    <p>
+        This image is floated to the right. It is also taller than the element containing it, so it overflows outside of its container:
+    </p>
+    <div id="" class="attr">
+        <img class="img1" src="../assets/src/fineapple.jpg" alt="pineapple" width="170px" height="170px">
+    </div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...
+    
+    <h2 class="clearfix"> With Clearfix</h2>
+    <p>
+        We can fix this by adding a clearfix class with overflow: auto; to the containing elem
+    </p><div class="clearfix">
+        <img alt="img2" class="img2" src="../assets/src/fineapple.jpg" width="170px" height="170px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...
+    </div>
+</body>
+</html>  
