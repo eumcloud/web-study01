@@ -1,358 +1,65 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clone without CSS</title>
     
-    <link rel="stylesheet" href="../lesson/assignment10m/assets/css/style.css">
-</head>
-<body>
-    <div id="topbanner" align="center" style="height: 49px; background-color: #c0d6f3;">
-        <img src="https://static-whale.pstatic.net/main/img_darkmode@2x.png" height="49" />여러분의눈은 소중하니까, <b>지금 바로 다크모드를 켜세요!</b>
-        <input type="button" value="다운로드" /><sup> 3일동안 다시보지않기 X</sup>
-    </div>
-
-    <div id="mainprops">
-        <center>
-            <table width="1140">
-                <div id="sethome" align="right"></div>
-                <tr>
-                    <td align="right">
-                        <small>
-                            <sub>
-                                <a href="#none" text-decoration-line="none">네이버를 시작페이지로 ></a>
-                                <a href="#none"> 쥬니어네이버</a> <span>|</span><a href="#none"> 해피빈</a>
-                            </sub>
-                        </small>
-                    </td>
-                </tr>
-                <tr>
-                    <td >
-                        <div id="topservice">
-                            <img id="toplogo" src="https://k-academy.run.goorm.io/lesson/assignment10m/assets/src/toplogo.png" alt="로고"/> 
-                            <span id="search"><input id="search" type="search" placeholder="검색어를 입력하세요" /><input type="submit" value="검색"/></span>
-                            <img id="thankspolice" src="https://s.pstatic.net/static/www/mobile/edit/20210930/mobile_161522481722.png">
-                        </div>
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <td><hr /></td>
-                </tr>
-                <tr>
-                    <td>
-                        <b
-                            ><a href="#none"
-                                ><img
-                                    src="data:image/png;base64,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"
-                                    alt="메일"
-                                    width="31"
-                                    height="31" style="vertical-align:bottom;"
-                                /><span id="contentslist">메일
-
-                                    <span><a href="#none" style="font-color:#03c75a;">카페</a></span>
-                                    <span><a href="#none">블로그</a></span>
-                                    <span><a href="#none">지식iN</a></span>
-                                    <span><a href="#none">쇼핑</a></span>
-                                    <span><a href="#none">쇼핑Live</a></span>
-                                    <span><a href="#none">Pay</a></span>
-                                    <span><a href="#none">▶TV</a></span>
-                            </span>
-                                    <span><a href="#none">뉴스</a></span>
-                                    <span><a href="#none">증권</a></span>
-                                    <span><a href="#none">부동산</a></span>
-                                    <span><a href="#none">지도</a></span>
-                                    <span><a href="#none">VIBE</a></span>
-                                    <span><a href="#none">책</a></span>
-                                    <span><a href="#none">웹툰</a></span>
-                                </a></b>
-
-                        <select>
-                            <option selected>더보기</option><option> 너무 많음..</option>
-                        </select>
-
-                        <span id="mistweather">
-                            <small> 
-                                <a href=#none>미세 좋음</a>
-                                <span>|</span> 
-                                <a href=#none>초미세 좋음</a> </small>
-                        </span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><hr /></td>
-                </tr>
-                <tr>
-                    <td>
-                        <table class="newstable">
-                            <tr>
-                                <td class="newsbox">
-                                    <table id="newsbox"> <tr><td><img id="midad" src="https://ssl.pstatic.net/tveta/libs/1362/1362095/07c393c30ad0e603f31f_20211020231329215.png"></td></tr>
-                                        <tr >
-                                            <td colspan="2">
-                                                <small
-                                                    ><span><b><a href="#none">연합뉴스 ></a></b>  
-                                                    <a href="#none">넷플릭스 CEO, '오겜' 체육복
-                                                    입고 실적
-                                                        발표..</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="#none">네이버뉴스</a> <a href="#none"> 연예</a> <a href="#none"> 스포츠</a> <a href="#none"> 경제</a></span>
-                                                </small>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <small
-                                                ><td>
-                                                    <small
-                                                        ><a href="#none">
-                                                        <img src="" alt="icon" /><b
-                                                            >뉴스스탠드 > </b
-                                                        ></a>
-                                                        
-                                                        <a href="#none">구독한 언론사</a>
-                                                    </small
-                                                    >
-                                                </td>
-                                                <td><small>
-                                                    <img src="" alt="list">
-                                                    <img src="" alt="menu">
-                                                    <img src="" alt="config">
-                                                    </small></td></small
-                                            >
-                                        </tr>
-                                       
-                                            <tr>
-                                                <td colspan="2">
-                                                    <img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    /><img
-                                                        src="https://via.placeholder.com/120x60"
-                                                    />
-                                                </td>
-                                            </tr><tr><td height="130px"></td></tr>
-                                        </div>
-                                    </table>
-                                </td>
-
-                                <td id="membershipshopbox">
-                                    <table id="membershipbox">
-                                        <tr>
-                                            <td id="loginbox">
-                                                <div style="border: 1px grey solid; padding: 10px;">
-                                                    <small
-                                                        >네이버를 더 안전하고 편리하게
-                                                        이용하세요</small
-                                                    ><br />
-                                                    <input id="btnLogin"
-                                                        type="button"
-                                                        value="NAVER 로그인"
-                                                        style="
-                                                            bckground-color=: #04cf5c;
-                                                            width: 315px;
-                                                            height: 48px;
-                                                        "
-                                                    />
-                                                </div>
-                                                <div id="wherisaccount">
-                                                    <small>
-                                                        <span
-                                                            ><a href="#none">아이디</a
-                                                            ><a href="#none">비밀번호 찾기</a></span
-                                                        ><span
-                                                            ><span
-                                                                >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;</span
-                                                            ><a href="#none">회원가입</a></span
-                                                        >
-                                                    </small>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    id="stockinfo"
-                                                    style="
-                                                        border: solid 0.5px skyblue;
-                                                        padding: 10px;
-                                                    "
-                                                >
-                                                    <small
-                                                        >증시 <b>독일</b
-                                                        ><span></span>15,473.56▼15,473.56</small
-                                                    ><span>&emsp;&emsp;&emsp;&nbsp;</span
-                                                    ><input type="button" value="<" /><input
-                                                        type="button"
-                                                        value=">"
-                                                    />
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr><td><img src="https://ssl.pstatic.net/tveta/libs/1359/1359925/557f483ca0fec8da79ca_20210930141747944_2.jpg" width="350px" height="200px"></td></tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><small>트랜드쇼핑 ></small></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="group_mall">
-                                                    <div class="mall_area">
-                                                        <small>
-                                                            <a href="#none">쿠팡</a>
-                                                            <span></span><a href="#none">G마켓</a>
-                                                            <span></span
-                                                            ><a href="#none"
-                                                                ><strong>옥션</strong></a
-                                                            >
-                                                            <span></span><a href="#none">11번가</a>
-                                                            <span></span
-                                                            ><a href="#none"
-                                                                ><strong>이마트몰</strong></a
-                                                            >
-                                                            <span></span><a href="#none">티몬</a>
-                                                        </small>
-                                                    </div>
-                                                    <div class="mall_area">
-                                                        <small>
-                                                            <a href="#none">위메프</a>
-                                                            <a href="#none">신세계몰</a>
-                                                            <a href="#none">올리브영</a>
-                                                            <a href="#none">GS샵</a>
-                                                            <a href="#none">롯데i몰</a>
-                                                            <a href="#none">CJ온스타일</a>
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <table>
-                                                    <tr align="center">
-                                                        <td>
-                                                            <img
-                                                                src="https://via.placeholder.com/107x146"
-                                                            /><br /><sub
-                                                                >팀장님이 물어봐도 <br />알려주기
-                                                                싫은 핫템</sub
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <img
-                                                                src="https://via.placeholder.com/107x146"
-                                                            /><br /><sub
-                                                                >신자마자 5cm UP <br />
-                                                                즉시50% 세일</sub
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <img
-                                                                src="https://via.placeholder.com/107x146"
-                                                            /><br /><sub
-                                                                >데상트 다운점퍼 <br />40%쿠폰</sub
-                                                            >
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-            </table>
-        </center>
-    </div>
-    <div id="footer" align="center">
-        <p>
-            <small>
-                <a href="#none">회사소개</a>
-                <a href="#none">인재채용</a>
-                <a href="#none">제휴제안</a>
-                <a href="#none">이용약관</a>
-                <a href="#none"><b>개인정보처리방침</b></a>
-                <a href="#none">청소년보호정책</a>
-                <a href="#none">네이버정책</a>
-                <a href="#none">고객센터</a>
-                <a href="#none"> <b>ⓒ NAVER Corp.</b></a>
-                       </small
-            >
-        </p>
-    </div>
-</body>
-</html>  
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>MyFlows - stream</title>
+        <link rel="stylesheet" type="text/css" href="./assets/portfolio/css/style.css">
+        <style></style><script></script>
+    </head>
+    
+    <body>
+        <div id="ceiling">
+            <div id="ci">
+                <!-- <fieldset><legend>ceiling</legend> -->
+                <div id="logo"><a href="#none">
+                   <img src="" alt="logo">
+                    Portfolio
+                </a></div>
+                <div id="btnmenu">
+                    <span>
+                        <a href="#none">
+                        Timeline</a>
+                    </span>
+                    <span>
+                        <a href="#none">Project</a>
+                    </span>
+                    <span>
+                        <a href="#none">Stacks</a>
+                    </span>
+                    <span>
+                        <a href="#none">Contact</a>
+                    </span>
+                </div><!--</fieldset>-->
+            </div>
+        </div>
+        <div id="intro">
+            <div id="">
+                
+            </div>
+        </div>
+        <div id="contents">
+            <div id="list">
+                </div>
+            <div class="contents a">
+                
+                <div class="contents b">
+                  </div>
+                
+                <div class="contents c">
+                  </div>
+                    
+                <div class="contents">
+                  </div>
+                
+                
+            </div>
+        </div>
+        <div id="footer">
+            
+        </div>
+    </body>
+</html>
