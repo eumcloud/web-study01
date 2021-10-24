@@ -1,11 +1,19 @@
 /*    전체기본값      */
-
-a:link, a:visited { text-decoration:none; }
-ol, ul, li { padding:0px; list-style:none;  }
-div { border:dotted 0.5px coral;  }
+*{position: relative;}
+a:link, a:visited{ text-decoration:none; color:#325575;}
+ 
+ol, ul, li { padding:5px; list-style:none;  }
+div { border:dotted 0.5px coral;    }
 span { border: dotted 0.5px skyblue; }
 
+.title{text-align:center; height:45px; }
+.content{}
+hr { background-color:#B1A0F4;}
+input[type=button]{ width:50px; height:30px; margin-left:3px;}
+input[type=search]{width:200px; height:30px; margin:auto; top:-2px;}
+
 /*    영역별     */
+
     /*   ceiling   */
 #ci{position:relative; width:100%; }
 fieldset{width:100%; display:none;}
@@ -15,16 +23,63 @@ fieldset{width:100%; display:none;}
     height: 40px;
     position: relative; float:right;
     top:-40px; right:10px; 
-} #btnmenu span{ background-color: skyblue; display:inline-axis;}
+} #btnmenu span{ 
+    background-color: skyblue;
+    border:solid 1px blue;    
+    display:inline;}
+
     /*   intro   */
-#intro{ width:100%; height:300px; 
-position: relative;}
+#intro{ width:100%; 
+        height:300px; 
+        position: relative;
+} .intro { 
+    width:100px; 
+    height:100px; 
+    display:inline-block; 
+    position: relative; 
+    margin: 10px 0 10px 10px;}
+.intro#intlist{
+    width:100px;
+    height:80%; 
+    position: relative; 
+    top:-60px;
+} .intro.title{ 
+    width: 100%; height:40px; position:relative; top:-40px;
+}
+#isearch {
+    width:400px; text-align:center; 
+    left:200px; top:-300px;
+    vertical-align:middle;
+}
+div.intro.contents{
+    width:150px; 
+    height:100px;
+    top:-300px;  left:120px;
+    display: inline-block;
+}
+
+
     /*   contents    */
-#contents{width: 100%; height:900px; margin: 0 auto;}
-.contents{width:100px; height:100px;
-        display:inline-block; 
+#contents {
+    width: 100%; 
+    height:900px;
+    margin: 10px auto; 
+    background-color: whitesmoke;
+}  #list{
+   width:100px; height:85%; margin:10px 10px;
+}
+#c_contents{display:inline-block; width:80%; left:130px; top:-730px;}
+.c_content{ 
+    width:150px; height:100px;
+    display: inline-block; position: relative;
+    margin: 10px; padding:10px;
+}
+.script{
+    width: 75%; top:-700px; left:150px; margin: 0 auto;
 }
 
 
     /*   footer  */
 #footer{width:100%; height:150px;}
+#supports a{margin-left:10px;font-size:14px;}
+div.corp_area{margin-top:20px;}
