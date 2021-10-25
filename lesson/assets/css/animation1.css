@@ -1,0 +1,19 @@
+div{
+    width:100px; height: 100px;
+    background-color: red;
+    animation-name:example;
+    animation-duration: 4s;
+    animation-iteration-count :3;
+    
+    
+} * { position: relative;}
+@keyframes example{
+    0%{left:0px; background-color:red;}
+    25%{left:300px; top:0px; background-color:coral;}
+    50%{top:300px; left:300px;background-color:skyblue;}
+    75%{left:0px;top:300px;background-color:lemonchiffon;}
+    100%{left:0px; top:0px;}
+    
+    
+}
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    
+    <style>
+        .flex-container{
+            display:flex;
+            flex-direction: row-reverse; /*우측부터 정렬 *//* comlumn*/
+            flex-wrap: wrap; /* wrap-reverse */
+            
+                        
+        }
+        .flex-container > div{
+            background-color: lightgray;
+            width: 100px;
+            margin: 5px;
+            line-height:5px;
+            padding: 20px;
+            font-size:30px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Flex Container </h1>
+    <div class="flex-container">
+         <div>        1     </div>
+        <div>        2     </div>
+        <div>        3     </div>
+        <div>        4     </div>
+        <div>        5     </div>
+        <div>        6     </div>
+        <div>        7     </div>
+        <div>        8     </div>
+        <div>        9     </div>
+        <div>        10    </div>
+        <div>        11    </div>
+        <div>        12     </div>
+    </div>
+   
+  
+
+</body>
+</html>  
