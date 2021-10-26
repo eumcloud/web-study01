@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable define and initialize</title>
+</head>
+<body>
+    
+    <h1>Variable define and initialize</h1>
+    <div id = "result"></div>
+    <script>
+        var num = 10;
+        var result = document.getElementById("result");
+        
+        result.innerHTML += num + "<br>";
+        
+        
+        num = [10, 20, 30]; //array [방에 쉼표단위로 하나씩 담는것] = num[]
+        result.innerHTML += num + "<br>";
+        
+        var num; // ****무시된다. ignored redefine
+        result.innerHTML += num + "<br>";
+        
+    </script>
+
+  
+
+</body>
+</html>  

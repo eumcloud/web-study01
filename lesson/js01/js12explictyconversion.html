@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exmplicity conversion</title>
+</head>
+<body>
+    
+    <h1>Exmplicity conversion</h1>
+    <div id = "result"></div>
+    <script>
+        
+        var result = document.getElementById("result");
+        result.innerHTML = Number("10000") + "<br>";
+        result.innerHTML += String(123456) + "<br>";
+        result.innerHTML += Boolean(1) + "<br>"; //boolean(1)은 true, 0은 false다.
+        result.innerHTML += Object(24) + "<br>";
+        
+    </script>
+
+  
+
+</body>
+</html>  

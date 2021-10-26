@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>undefined null</title>
+</head>
+<body>
+    
+    <h1>Undefined and Null</h1>
+    <div id = "result"></div>
+    <script>
+        var num; //값을 안넣었음
+        var str = null;
+        
+        var result = document.getElementById("result");
+        result.innerHTML = (typeof num) + "<br>" + (typeof str)+ "<br>" + (typeof firstnum); 
+        //firstnum 역시 선언해주지않았음. define이 안되었다고 표현한다. js에서는 구체적으로 설명하지 않았으므로, 작업하다가 undefined 뜨면 들디 체크해야한다.
+    </script>
+
+  
+
+</body>
+</html>  
