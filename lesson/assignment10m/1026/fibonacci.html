@@ -10,30 +10,55 @@
 -->
 <html lang=ko>
     <head>
-        <titl>피보나치</titl>
+        <title>피보나치</title>
     </head>
     <body>
-        <h2>
-            피보나치수를 구하는 함수
-        </h2>
+        <h2></h2>
         
-        
-        
-<!--  fib : 1 1 2 3 5 8 11 19 30 49 ...        -->
+<!--  fib : 1 1 2 3 5 8 13 21 34 55 89 144 233....        -->
         <script>
-   
-   
-        for (i=0; i<100; i++){
-            var a = [1, i];
-            var b = a[0] + a[1]; 
-        
-            
+        document.write("<h2>피보나치 수열</h2>");
+
+        function fib(n){
+
+            let a = 0;
+          let b = 1;
+          for (i=1;i<n;i++){
             document.write(b+ " ");
-            }
+            let c = a;
+            a = b;
+            b = a + c;
+
+          }
+        }
+
+        fib(99);
+
+            
+            
+            
+            
+            // function fib(n){
+            //     for (i=0; i<=n; i++){
+            //         if (n<2){ document.write(1+" ")}
+            //         else fib(n-1) + fib(n-2);
+            //         }
+            //     }
+            
+            //   document.write(fib(33));
+            
+        //      for (i=1; i<100; i++){
+        //       var a = [i-2, i-1];
+        //       var b = a[0] + a[1]; 
+   
+        //       if(i <=2){b = 1}
+           
+            
+        //       document.write(b+ " ");
+        //       }
         
-      
-        
-        </script>
+          </script>
+        <br><br>
         
     </body>
 </html>

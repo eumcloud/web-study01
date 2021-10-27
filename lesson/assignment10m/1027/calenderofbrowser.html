@@ -1,0 +1,68 @@
+<!-- 
+WEB 브라우저 console에 달력 출력
+- makeCalender(year, month) 함수를 구현하여 console에 출력
+- Date()함수 사용, console.log()를 사용
+- 출력은 아래와 같다.
+
+
+xxxx년, xx월
+일 월 화 수 목 금 토
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 
+-->
+<html>
+    <head>
+        <title>calender of console</title>
+    </head>
+<body>
+    <h2> 
+  캘린더 만들기
+</h2>
+2021년 5월<br>
+일 월 화 수 목 금 토<br>
+<pre>                   1
+ 2  3  4  5  6  7  8
+ 9  10 11 12 13 14 15
+ 16 17 18 19 20 21 22
+ 23 24 25 26 27 28 29
+ 30 31
+ 
+</pre>
+2021년 3월<br>
+일 월 화 수 목 금 토<br>
+<pre>     1  2  3  4  5  6
+ 7  8  9  10 11 12 13
+ 14 15 16 17 18 19 20
+ 21 22 23 24 25 26 27
+ 28 29 30 31
+</pre>
+           
+   <script>
+document.write('<h1>캘린더만들기</h1>');
+function makeCalender(year, month){
+
+	let calender = year + "년, "
+                + month+
+      "월<br> 월 화 수 목 금 토 일 <br>";
+    let array=[];
+    for (i=1; i<=31; i++){
+    if(i == 1)array+=" &nbsp; ";
+    array += i + " &nbsp;";
+    
+  	if(i % 7 == 0) {array += "<br>";}
+  	} array += "<br><br>";
+  	
+  document.write(calender);
+  document.write(array);
+  console.log(calender);
+  console.log(array);
+ 	
+}
+
+makeCalender(2021,5);
+makeCalender(2021,3);
+       </script>
+</body>
+</html>
