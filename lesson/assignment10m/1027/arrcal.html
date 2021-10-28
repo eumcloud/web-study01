@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <script src=""></script>
+        <script>
+           
+        function makeCal(year, month){
+            let m = month;
+            month-= 1;
+            let d = new Date(year, month);
+
+            //달력 기본
+            let cal  = ['\t',year, '년 ',parseInt(month)+1, '월', '\n'];
+                cal.push('일', '월', '화', '수', '목', '금', '토','\n');
+
+            //일자
+            let days = [];
+
+                //마지막날 찾기
+            let where = new Date(year, month+1,0)
+            let lastdate = where.getDate();
+
+            //토요일마다 엔터
+            for(i=1;i<lastdate+1; i++){
+                days.push(i);
+                let day = d.getDay()
+                day+=1;
+                
+                if(day==6){days.push('\n'); day=0;} //왜안들어갈까
+                
+            }
+            
+            //첫날짜 위치잡기
+            for(i=0; i<d.getDay();i++){
+                cal.push('\t');
+            } 
+            //내용산출
+            let calends = cal.join(' ')+days.join(' ')
+            
+            for (contents in days){
+                
+            }
+
+            console.log(calends);
+            
+            console.log("")
+        }    
+makeCal(2021,04);
+makeCal(2021,02);
+     
+
+
+
+
+
+    
+// let firstdaylocation = '\t';
+// days.push(firstdaylocation);
+// for(i=1;i<lastdate+1; i++){
+//     days.push(i)
+//     day++
+//     if(day==6){days.push('\n'); day=0;}
+// }
+// let cal = days.join('\t');
+// let i= 1;
+// while(i<lastdate+1){
+//     days.push(i);
+//     let day = d.getDay();
+//     if(day==6){ days.push('\n'); day==0;}
+//     day++
+// }
+
+        </script>
+    </head>
+    <h3>
+        콘솔캘린더
+    </h3>
+</html>

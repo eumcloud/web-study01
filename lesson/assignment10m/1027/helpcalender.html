@@ -1,0 +1,54 @@
+
+<html>
+    <head>
+        <title>console calender</title>
+    </head>
+    <body>
+    
+    <h2>
+        콘솔에 달력출력하기
+        </h2>
+        <script>
+            function makeCalendar(year, month){
+                var date = new Date(year + '-' + month + '-01');
+                console.log(date);
+                var calendar = [["일", "월", "화", "수", "목", "금", "토"]];
+                var week = [];
+                var targetDate = 2
+                while(targetDate != 1){ // 날짜가 1일이 되면 달이 끝난거니 종료
+                    var today = date.getDate(); //날짜 획득
+                    var weekday = date.getDay(); //요일 획득
+                    if(weekday == 0 && week.length > 0){ //일요일이 되면 새주 생성
+                        calendar.push(week);
+                        week = [];
+                    }
+                    week[weekday] = today //주간 배열에 요일에 맞도록 날짜 입력
+                    date.setDate(today + 1) // 날짜 하루 더하기
+                    targetDate = date.getDate(); // 해당 날짜 받기
+                }
+                calendar.push(week);
+                console.log(calendar)
+
+                var date = new Date(year + '-' + month + '-01');
+                var targetDate = 2
+                var weekText = "일\t월\t화\t수\t목\t금\t토\n"
+                var weekday = date.getDay(); //요일 획득
+                for(var i = 0; i < weekday; i++){ //1일이 해당요일 줄에 맞게 나오도록 탭 추가
+                    weekText += "\t"
+                }
+                while(targetDate != 1){ // 날짜가 1일이 되면 달이 끝난거니 종료
+                    var today = date.getDate(); //날짜 획득
+                    var weekday = date.getDay(); //요일 획득
+                    if(weekday == 0 && week.length > 0){ //일요일이 되면 새주 생성
+                        weekText += "\n"
+                    }
+                    weekText += today + "\t"
+                    date.setDate(today + 1) // 날짜 하루 더하기
+                    targetDate = date.getDate(); // 해당 날짜 받기
+                }
+                console.log(weekText + "\n");
+                resultArea.value = weekText;
+            }
+        </script>
+    </body>
+</html>

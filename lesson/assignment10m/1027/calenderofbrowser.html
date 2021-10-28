@@ -21,48 +21,87 @@ xxxx년, xx월
   캘린더 만들기
 </h2>
 2021년 5월<br>
+<pre>
 일 월 화 수 목 금 토<br>
-<pre>                   1
- 2  3  4  5  6  7  8
- 9  10 11 12 13 14 15
- 16 17 18 19 20 21 22
- 23 24 25 26 27 28 29
- 30 31
+                  1
+2  3  4  5  6  7  8
+9  10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30 31
  
 </pre>
 2021년 3월<br>
+<pre>
 일 월 화 수 목 금 토<br>
-<pre>     1  2  3  4  5  6
- 7  8  9  10 11 12 13
- 14 15 16 17 18 19 20
- 21 22 23 24 25 26 27
- 28 29 30 31
+   1  2  3  4  5  6
+7  8  9  10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30 31
 </pre>
            
-   <script>
-document.write('<h1>캘린더만들기</h1>');
+<script>
+document.write('<h3>콘솔참조</h3>');
 function makeCalender(year, month){
-
-	let calender = year + "년, "
-                + month+
-      "월<br> 월 화 수 목 금 토 일 <br>";
-    let array=[];
-    for (i=1; i<=31; i++){
-    if(i == 1)array+=" &nbsp; ";
-    array += i + " &nbsp;";
+    let m = month;
+    month -= 1; //입력받은 월 함수에 맞게 조정
     
-  	if(i % 7 == 0) {array += "<br>";}
-  	} array += "<br><br>";
-  	
-  document.write(calender);
-  document.write(array);
-  console.log(calender);
-  console.log(array);
+    function addzero(n, digits) {//0안붙였을경우 붙여주기
+          var zero = '';
+          n = n.toString();
+              if (n.length < digits) {
+                for (var i = 0; i < digits - n.length; i++)
+                  zero += '0';
+              }
+          return zero + n;
+    }
+    
+    if(month <10){
+        addzero(month,2);  
+    } 
+    let d = new Date(year, month);
+	let calender = year + "년, "
+                + m + "월\n"
+                + "일\t월\t화\t수\t목\t금\t토\t"; // 0-6
+    
+    let date = d.getDate(); //날짜
+        month = d.getMonth(); //월
+        year = d.getFullyear(); //연도
+    let firstdate = d.getDate();
+    let findlastdate = new Date(year, month+1, 0); //마지막날 찾기
+    let lastdate = findlastdate.getDate();
+    
+    // 토요일마다 \n처리
+    
+    
+    let days=[];
+    for (i=1; i<lastdate+1; i++){
+        days.push(i);
+    }        
+    
+        // if(month==5){
+        //     week+="\t\t\t\t\t\t"+1+"\n";
+        //     for (i=2; i<=31; i++){
+        //     week += i + "\t"
+        //         if (i>7 && i % 7 ==1) week += "\n";
+        //     }
+        // };
+        // if(month==3){
+        //         week +="\t"+1+"\t"+2+"\t"+3+"\t"+4+"\t"+5+"\t"+6+"\n";
+        //     for (i=7; i<=31; i++){
+        //         week += i + "\t"
+        //         if (i>7 && i % 7 ==6) week += "\n";
+        //     };            
+        // };
+  	   
+      console.log(calender);
+      console.log(week);
+  	} 
  	
-}
-
 makeCalender(2021,5);
 makeCalender(2021,3);
-       </script>
+console.log('원하시는 연도와 월을 입력해주세요.');
+</script>
 </body>
 </html>
