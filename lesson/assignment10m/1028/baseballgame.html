@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <style>
+            .uzrzone{position:absolute; top:500px; left:500px;}
+            #player, #btn{height:50px;}
+        </style>
+    </head>
+    <body>
+        <!--    게임 안내판      -->
+        <h2>숫자야구게임</h2>
+        <div id="guidecomment"></div>
+        <h3 id="randNum"></h3>
+        
+        
+        <div class=uzrzone >
+            <input type="number" id="player" maxlength='3' placeholder="3자리 숫자를 입력하세요.">
+            <input type="button" id="btn" value="게임시작" onclick="gamestart();">    
+        </div>
+        
+        
+        <div id="usrboard"></div>
+        <script>
+            
+            
+            let guidecomment = document.getElementById("guidecomment");
+            let randNum = document.getElementById("randNum");
+            let usrboard = document.getElementById("usrboard");
+            
+            //Usr입력받은 값
+            let input = document.getElementById("player").value;
+            
+            guidecomment.innerHTML = "3자리 넘버를 입력해주세요!";
+            function gamestart(){
+                //입력한 값이 3자리 이하라면, 
+                if (input<1000){guidecomment.innherHTML = "3자리 넘버를 다시 입력해주세요!";}
+                let rand = Math.floor(Math.random()*1000);
+                if (rand<100){
+                    rand = rand.toString();
+                    rand = "0"+rand;
+                    if(rand<10){ rand = "00"+rand;}
+                }
+                comment.innerHTML = "결과를 확인하세요!";
+                randNum.innerHTML = rand;
+                
+                var strike=0;
+                var ball=0;
+                usrboard.innerHTML = "결과" + input + "Strike : " +  strike + ", Ball : ";
+                
+            // 1.strike처리 - 숫자와 순서가 맞음              if(숫자비교, 숫자가 있고&& 순서같음){STRIKE처리 }
+            // 2.ball처리 - 숫자가 맞지 않으나 랜덤수와 같은 수 if(숫자비교, 숫자가 있고&& 순서다름){ball처리 }
+            // 3.home run처리 - 숫자와 순서가 전부 맞음        if(숫자비교, 숫자가 있고&& 순서다름){ball처리 }
+                // usrboard.innerHTML = input;
+                let compare1 = rand.substr(0,1);
+                    compare1.push(rand.substr(1,1));
+                    compare1.push(rand.substr(2,1));
+                
+            }
+        </script>
+        <script>
+            
+        </script>
+    </body>
+</html>
