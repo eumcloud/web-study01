@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set Method</title>
+</head>
+<body>
+    <h2>set Method </h2>
+    <div id="result"></div>
+    
+    <script>
+        const letters = new Set(["a", "b"]);//방법1
+        
+        const c = "c"; //방법2
+        letters.add(c);
+               
+        letters.add("d");//방법3
+        
+        letters.add("e");
+        letters.add("f");
+        
+        document.getElementById("result").innerHTML = letters.size;
+    </script>
+
+  
+
+</body>
+</html>  

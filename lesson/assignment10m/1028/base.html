@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            .uzrzone{position:absolute; top:500px; left:300px;}
+            .uzrzone{position:absolute; top:500px; left:20%;}
             #usrinput, #btn, #reset{height:50px;}
             #usrboard{ font-size:15px;}
             div{font-size:22px;}
@@ -22,16 +22,12 @@
             <input type="reset" id="reset" value="새 게임" onclick="reset();">
             <div id="usrboard"></div>
         </div>
-        
-            
-            
-            
-            
+          
         
         <script>
-            // 
+             
             // 1.strike처리 - 숫자와 순서가 맞음
-            // 2.ball처리 - 숫자가 맞지 않으나 랜덤수와 같은 수 
+            // 2.ball처리 - 순서가 맞지 않으나 랜덤수와 같은 수 
             // 3.home run처리 - 숫자와 순서가 전부 맞음
             
             //텍스트 div
@@ -42,8 +38,8 @@
             guidecomment.innerHTML = "3자리 넘버를 입력해주세요!";
             function gamestart(){
                 // 3자리 체크
-                // var tirnum = usrinput.value;
-                // if (tirnum <100){ guidecomment.innherHTML = "3자리 넘버를 다시 입력해주세요!"; return null; }
+                var tirnum = usrinput.value;
+                if (tirnum <100){ guidecomment.innherHTML = "3자리 넘버를 다시 입력해주세요!"; return null; }
                 
                 let rand3 =[];
                 for(i=0;i<3;i++){
@@ -57,7 +53,6 @@
                 randNum.innerHTML = rand;
                 
                  
-               
                 //게임체크
                 var strike = 0;
                 var ball = 0;
@@ -66,21 +61,20 @@
                     var usrinputarr = [];
                     var usrinputnum = usrinput.value;
                     usrinputnum.split("");
-                if(usrinputarr[i]==rand3[i]){
-                    strike++; rand3[i]==null; }
-                    if (strike==3){//homerun
-                        usrboard.innerHTML = "입력값 : " + usrinput.value + "<p style='color:blue;' ><b>결과는 homerun _-=●입니다!!</b></p>"}
-                    //ball count
-                    
-                    
-                    
-                              }
-                usrboard.innerHTML = "플레이어 입력값: "+usrinput.value + " 결과는" +  "Strike : " + strike + ", Ball : " +ball + "입니다";
-                var result = strike + ", Ball : "+ball;
-                console.log('컴퓨터 입력값: ' +randNum + '플레이어 입력값: '+ usrinput+ '결과값: '+result);
+                    if(usrinputarr[i]==rand3[i]){
+                        strike++; rand3[i]==null; }
+                        if (strike==3){//homerun
+                            usrboard.innerHTML = "입력값 : " + usrinput.value + "<p style='color:blue;' ><b>결과는 homerun _-=●입니다!!</b></p>"}
+                        //ball count
+                   
+                            usrinputnum[i]==rand
+                            }
+                            usrboard.innerHTML = "플레이어 : "+usrinput.value + " 결과는" +  "Strike : " + strike + ", Ball : " +ball + "입니다";
+                            var result = strike + ", Ball : "+ball;
+                            console.log('컴퓨터 : ' +randNum + '플레이어 : '+ usrinput+ '결과값: '+result);
                 
                 
-                if(usrinput.value!=null){reset();}
+                // if(usrinput.value!=null){reset();}
             }
         
             function reset(){

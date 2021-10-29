@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback function II</title>
+</head>
+<body>
+    <h2> callback function II </h2>
+    <div id="userid"></div>
+    <div id="username"></div>
+    <script>
+        function findUserCallback(userid, myCallback){
+            
+            const user = { //딕셔너리로 유저정보 
+                userid: userid,
+                name: "User"+id
+            };
+            
+            myCallback(user);
+            
+        }
+       findUserCallback(1, function(user){
+           document.getElementById("userid").innerHTML = user.userid;
+           document.getElementById("username").innerHTML = user.name;
+       })
+    </script>
+
+  
+
+</body>
+</html>  

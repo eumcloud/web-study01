@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Set Interval </h2>
+    <div id="result"></div>
+    
+    <script>
+        setInterval(myFunction, 1000); //setInterval로 1초마다 함수호출
+        
+        function myFunction    {
+            let d = new Date();
+            document.getElementById("time").innerHTML = 
+                d.getHours() + " : " +
+                d.getMinutes() + " : " + 
+                d.getSeconds()+ " : " + 
+                d.getMilliseconds();
+        }
+    </script>
+
+  
+
+</body>
+</html>  

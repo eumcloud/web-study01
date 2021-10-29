@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체생성자 constructor</title>
+</head>
+<body>
+    <h2> 객체생성자 constructor </h2>
+    <div id="result"></div>
+    
+    <script>
+        function Person(first, last, age, eye){
+            this.firstname = first;
+            this.lastname = last;
+            this.age = age;
+            this.eyeColor = eye; 
+            
+            //메서드 컨스트럭터(method constructor)
+            this.fullname = function(){
+                return this.firstName + " " + this.lastName;
+            }
+        }
+        //new 메서드명 출력하면, 객체를 불러오는것.
+        const mySon = new Person("John", "Doe", "12", "gray");
+        
+        mySon.nationality = "Korean";
+        document.getElementById("result").innerHTML =
+            "My Son is " + mySon.age + ".";
+    </script>
+
+  
+
+</body>
+</html>  
