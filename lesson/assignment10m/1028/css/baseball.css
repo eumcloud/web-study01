@@ -1,0 +1,28 @@
+.usrInput{height:50px; width:70%;}
+            div{font-size:18px; position:relative; /*top:5%; left: 5%;*/ }
+            
+            #case{
+                width:450px; height:80%;
+                border:solid 22px navy; 
+                border-radius: 4px;
+                box-shadow: 4px 4px 10px #E6E2AF;
+                padding:25px;
+                margin: 5% auto;
+                
+            }
+                
+            #guideComment{
+                background-color:rgba(218, 251, 67, 0.5);
+                width:100%; height:50px; padding:10px 0px 10px 20px; 
+                position:relative; left:-10px; top: 25px;
+                display: flex; align-items: center;
+                text-align: center;
+                font-weight: bold;
+                color:#415C45;
+            }
+            #comsRandNum{ text-align:center; font-weight: bold; font-size: 22px; top:45px;  }
+            #usrInput{text-align:center; font-size: 22px; }
+            #usrNote{top:55%; text-align:center;}
+            #usrArea{
+                position:absolute; left:25%; top:75%;
+            }

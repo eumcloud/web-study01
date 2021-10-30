@@ -1,0 +1,85 @@
+<html>
+    <head>  
+    </head>
+    <body>
+        <div id="case"><div id="guideComment"></div>
+        <div id="comsRandNum"></div>
+        <div id="blankBoard"></div>
+        <div id="usrNote"></div>
+        <div id="usrArea">
+            <input type="number" maxlength="3" id="usrInput" class="usrInput">
+            <input type="button" class="usrInput" value="게임시작" onclick="game();">
+            <input type="button" class="usrInput" value="리셋하기" onclick="reset();">
+        </div>
+        
+            
+            <script>
+                
+            function reset(){
+                usrNote.innerHTML = "<p style='color:red;'> 빈칸에 3자리 숫자를 입력해주세요!";
+                comsNum.innerHTML = "";
+                userInput.value = "";
+                strike = 0, ball = 0;
+            }
+            //game 안내요소
+            let comment = document.getElementById("guideComment");
+            comment.innerHTML = " 게임을 시작하시려면 3자리 숫자를 입력해주세요!";
+            let comsNum = document.getElementById("comsRandNum");
+            let usrNote = document.querySelector("#usrNote");
+            let userInput = document.querySelector("#usrInput");
+            let strike = 0;
+            let ball = 0;
+            
+            function game(){
+                //플레이어가 3자리 이하입력시
+                if(userInput.value<100 || userInput.value >999){reset(); return null;}
+                
+                //Com randNum 세팅
+                let rand = [];
+                let i=0;
+                while(i<3){rand.push(Math.floor(Math.random()*9)); i++;}
+                
+                comsNum.innerHTML = rand.join(" ");
+                let usrInputArr = userInput.value;
+                usrInputArr = usrInputArr.split("");
+                
+                //HOMERUN COUNT
+                
+                let homerun = [null,null,null];
+                if (rand[0]==usrInputArr[0] 
+                    && rand[1]==usrInputArr[1] 
+                    && rand[2]==usrInputArr[2]){
+                    usrNote.innerHTML = "게임의 결과! 홈런!!"+rand+" 3자리 모두 맞췄습니다!!";}
+                //STRIKE COUNT
+                for(i=0;i<3;i++){
+                    if(rand[i]==usrInputArr[i]){strike++; rand[i]=null;} 
+                   /* if(rand==homerun){usrNote.innerHTML = "게임의 결과! 홈런!!"+rand+" 3자리 모두 맞췄습니다!!"; return null;*/}
+                }
+                //BALL COUNT
+                if(rand[0]==usrInputArr[1]||rand[0]==usrInputArr[2]){ball++; }
+                if(rand[1]==usrInputArr[0]||rand[1]==usrInputArr[2]){ball++; }
+                if(rand[2]==usrInputArr[0]||rand[2]==usrInputArr[1]){ball++; }
+                
+                
+                console.log("게임의 결과! 컴퓨터 입력값 : "+comsNum.innerText+"플레이어 입력값 : " + usrInputArr.join(" ") + " Strike : "+strike+" Ball : " +ball+ "입니다!");
+                
+                
+                usrNote.innerHTML = "게임의 결과! <br> 플레이어 입력값 : " + usrInputArr.join(" ") + " Strike : "+strike+" Ball : " +ball+ "입니다!"
+                window.setTimeout(reset,2000);
+            
+            
+                
+            </script>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://k-academy.run.goorm.io/forFront1017/lesson/assignment10m/1028/css/baseball.css">
+    </body>
+</html>
