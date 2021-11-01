@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>double for statement in console</h2>
+
+    <ul>
+        <li>condition: arr[a,b,c,d,e] </li>
+        <li><pre>
+          a
+         bcd
+        abcde
+    </pre></li>
+        <li><pre>
+          a
+         bcd
+        abcde
+         bcd
+          a
+    </pre></li>
+    </ul>          
+    
+    
+    <script>
+        let arr = ['a','b','c','d','e'];
+        let t = " ";
+        let print = "";
+        for(i=0;i<arr.length;i++){
+            print += t;
+            for(j=0; j<arr.length;j++){
+                print += arr[j];
+            }
+            print += t;
+
+        }console.log(print);
+        
+        // for(i=0,j=3;i<arr.length+2, j>-3;i++,j--){
+    
+        // let alpha = arr[i];
+        // let blank = " ";
+        // let print = blank*(j+i)+arr[i+j]+blank*(j+i)+"\n";
+
+        //  console.log(print);   
+        // }
+        
+    
+    </script>
+</body>
+</html>  
