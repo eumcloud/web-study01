@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnMouseOver_Event</title>
+</head>
+<body>
+    <h2> OnMouseOver_Event feat.mouseOut</h2>
+    <div id="result"></div>
+
+    <h1 id="demo" onmouseover = "mouseOver()" onmouseout = "mouseOut()">
+        Mouse over me!!!
+    </h1>
+    
+    <script>
+        
+        
+        
+        function mouseOver(){
+            document.getElementById("demo").style.color = "red";
+        }
+        function mouseOut(){
+            document.getElementById("demo").style.color = "gray";
+        }
+        // 같은 효과내기
+        // document.getElementById("demo").onmouseover = function() {mouseOver()}; // 여기서 사용하는 function을 콜백함수라고 한다.
+        //  document.getElementById("demo").onmouseover = function() {mouseOut()};
+    
+    </script>
+</body>
+</html>  

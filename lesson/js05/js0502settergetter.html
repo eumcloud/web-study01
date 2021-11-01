@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setter n Getter</title>
+</head>
+<body>
+    <h2> Setter n Getter </h2>
+    <div id="result"></div>
+    <div id="result1"></div>
+    <input type="button" onclock="">
+    <script>
+        class Car {
+            constructor(brand){
+                this.carname =  brand;
+            }
+            get cname() {//메서드처럼 보이지만 property다
+                return this.carname;
+            }
+            
+            set cname(x){
+                this.carname = x;
+            }
+        }
+        let myCar = new Car("Ford");
+        let result = document.getElementById("result");
+        result.innerHTML = myCar.cname;
+        
+        myCar.cname = "Benz";
+        let result = document.getElementById("result1");
+        result1.innerHTML = myCar.cname;
+    
+    </script>
+</body>
+</html>  

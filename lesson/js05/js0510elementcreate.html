@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Element Create example </h2>
+    <div id="result">Up text is dynamic adding !!</div>
+<!-- result  insertBefore을 사용해서 함수에서 지정한 문자를 추가한다 -->
+    <script>
+        function addElement(){
+            var newDiv = document.createElement("div");
+            var newContent = document.createTextNode("welcome to Hell!!");
+        }
+        
+        var currentDiv = document.getElementById("result");
+        document.body.insertBefore(newDiv,currentDiv);// newDiv 앞에 div생성
+    
+    </script>
+</body>
+</html>  

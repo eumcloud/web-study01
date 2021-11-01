@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritence</title>
+</head>
+<body>
+    <h1>js, Inheritence</h1>
+    <div id="result"></div>
+  
+    <script>
+        class Car{
+            constructor(brand){
+                this.carname = brand;
+            }
+            present(){
+                return "I have a " + this.carname;
+            }
+        }// end of car
+        
+        class Model extends Car {// extends : 뒤에 명시된 Class를 상속받겠다는 의미.
+            constructor(brand, mod){
+                spuer(brand);//super 부모의 constructor를 쓴다  //상위 클래스 안의 함수를 사용한다는것.
+                this.model = mod;
+                
+            }// end of Model
+            show(){ //확장**
+                return this.present() + ', it is a ' + this.model;
+            }
+        }
+        
+        let myCar = new Model("Ford", "Mustang");
+        let result = document.getElementById("result");
+        result.innerHTML = myCar.show();
+        
+        // for example 
+        class vehicle {
+            constructor(name){
+                this.name = name;
+            }
+        }// end of vehicle
+        class autovehicle extends vehicle{
+            constructor(name,usage){
+                super(name)
+                this.usage = usage; // this.는 현재함수
+                
+            }// end of autovehicle
+        }
+        /////////////////////////
+        class autobike extends vehicle{
+            constructor(name,usage){
+                super(name);
+                this.usage = usage;
+            }
+        }
+            
+            
+    </script>
+</body>
+</html>  

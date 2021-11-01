@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> another querySelector </h2>
+    
+    <p>this is first element for graph</p>
+    <p>this is second element for graph</p>
+    <p>this is third element for graph</p>
+    <div id="dom"></div>    
+    <script>
+        const element = document.getElementsByTagName("p");
+        document.getElementById("dom").innerHTML = "The text is first paragraph (index0 ) is : " + element[1].innerHTML;
+    
+    </script>
+</body>
+</html>  
