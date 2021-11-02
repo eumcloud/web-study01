@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While Continue</title>
+</head>
+<body>
+    <h2> While Continue </h2>
+    
+    <button onclick="myFunction()">
+        ClickMe
+    </button>
+    <div id="result"></div>
+  
+    <script>
+        function myFunction(){
+            var text = "";
+            
+            var i = 0;
+            while(i<5){
+                
+                i++;
+                if(i === 3){ // i가 3일때 다음루프로 돌아간다.
+                    continue;
+                }
+                text += "<br>The number is " + i;
+            }
+            document.getElementById("result").innerHTML = text;
+        }
+    </script>
+</body>
+</html>  

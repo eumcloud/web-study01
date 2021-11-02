@@ -1,54 +1,72 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>double for statement in console</h2>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>double for statement in console</h2>
 
-    <ul>
-        <li>condition: arr[a,b,c,d,e] </li>
-        <li><pre>
+        <ul>
+            <li>condition: arr[a,b,c,d,e]</li>
+            <li>
+                1. print it like that
+                <pre>
           a
          bcd
         abcde
-    </pre></li>
-        <li><pre>
+    </pre>
+            </li>
+            <li>
+                2. print it like that too.
+                <pre>
           a
          bcd
         abcde
          bcd
           a
-    </pre></li>
-    </ul>          
-    
-    
-    <script>
-        let arr = ['a','b','c','d','e'];
-        let t = " ";
-        let print = "";
-        for(i=0;i<arr.length;i++){
-            print += t;
-            for(j=0; j<arr.length;j++){
-                print += arr[j];
+    </pre>
+            </li>
+        </ul>
+
+        <script>
+            let arr = ['a', 'b', 'c', 'd', 'e'];
+            let t = ' ', n = '\n';
+            let print = '';
+            for (i = 0; i < 4; i++) {
+                for (j = 3; j > i; j--) {
+                    print += t;
+                }
+                for (r = 0; r < 2 * i - 1; r++) {
+                    print += arr[r];
+                }
+                print += n;
             }
-            print += t;
+            console.log(print);
 
-        }console.log(print);
-        
-        // for(i=0,j=3;i<arr.length+2, j>-3;i++,j--){
-    
-        // let alpha = arr[i];
-        // let blank = " ";
-        // let print = blank*(j+i)+arr[i+j]+blank*(j+i)+"\n";
+            
+            let print2 = '';
+            let a = 0,
+                b = 1;
 
-        //  console.log(print);   
-        // }
-        
-    
-    </script>
-</body>
-</html>  
+            for (i = 0; i < 5; i++) {
+                a = a + b;
+                if (a == 3) {
+                    b = -1;
+                }
+                for (j = 0; j < 3 - a; j++) {
+                    print2 += t;
+                }
+                for (j = 0; j < a * 2 - 1; j++) {
+                    print2 += arr[j];
+                }
+                print2 += n;
+            }
+            console.log(print2);
+
+            
+        </script>
+    </body>
+</html>

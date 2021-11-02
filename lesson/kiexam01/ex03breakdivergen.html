@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break divergen</title>
+</head>
+<body>
+    <h2> break divergen </h2>
+    <button onclick="myFunction()">Click Me!</button>
+    <div id="result"></div>
+  
+    <script>
+        function myFunction(){
+            var text = "";
+            var j=0, i=0;
+            Loop1://label2
+            for(i=0; i<3; i++){
+                text += "<br>" + "i = " + i + ", j = ";
+                Loop2: //label2
+                for(j=0; j<5; j++){
+                    if(j === 2)
+                        break Loop1;//j가 2일떄마다 Loop1로 넘어감.
+                    document.getElementById("result").innerHTML = text += j + " ";
+                    
+                }//end of for j <5; 
+            }//end of for i < 3;
+        }
+    </script>
+</body>
+</html>  

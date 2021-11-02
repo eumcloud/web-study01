@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> while break </h2>
+    <button onclick="myFunction()">
+        Click Me!
+    </button>
+    <div id="result"></div>
+  
+    <script>
+        var text = "";//기본 변수 초기화를 해주고 시작하는게 좋다.
+        var i = 0;//기본 변수 초기화를 해주고 시작하는게 좋다.
+        function myFunction(){
+            var i = 0;
+            var text = "";
+            var sum = 0;
+            // while(i < 5){
+            //     text+= "<br>The number is " + i;
+                
+                
+            //     i++;//while문은 필수로!
+            //     if(i==3){break;}
+            // }
+            while(i < 100){
+                sum += i +1;
+                
+                i++;//꼭 신경쓰기!
+            }
+             text += "Sum is " + sum;
+             document.getElementById("result").innerHTML = text;
+        }
+    
+    </script>
+</body>
+</html>  
