@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>starstree</title>
+</head>
+<body>
+    <h2> ShootingStar in Console </h2>
+    <div id="result"></div>
+  
+    <script>
+    //function I     
+    
+    let t =" ", n = "\n", s = "*";
+        let print="[Function I]"+n;
+    for(i=1;i<=10;i++){
+        for(k=0; k<i;k++){
+            print += s;
+        }
+        print += n;
+    }console.log(print);
+        
+    //function II
+    let print2="[Function II]"+n;
+    for(i=10; i>0; i--){
+        
+        for(l=0; l<i; l++){
+            print2 += s;
+        }
+        print2 += n;
+    }console.log(print2);
+        
+        
+    //function III
+    let print3="[Function III]"+n;
+    let a = 0, b = 1;
+    for(i=0; i<15; i++){
+        a += b;
+        if (a == 6) { b = -1; }
+        
+        for(l=0; l < 6-a; l++){ print3 += t; }
+        for(j=0; j < a*2 -1; j++){ print3 += s; }
+        print3 += n;
+    }console.log(print3);
+    
+        
+        
+        
+        
+     
+        
+    </script>
+</body>
+</html>  
