@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>non break switch</title>
+</head>
+<body>
+    <h2> non break switch </h2>
+    
+    <button onclick="checkSwitch()">
+        ClickMe
+    </button>
+    <div id="result"></div>
+  
+    <script>
+        function checkSwitch(){
+            let text;
+            
+            switch(new Date().getDay()){
+                case 1:
+                case 2:
+                    text = "Today is Tuesday!!!";
+                    //break;
+                case 3: //위 1,2,3에 break가 없어서 계속 하나씩 넘어가서 다음 case를 실행한다.
+                    // 경우에 따라 값이 1,2,3일 때의 결과가 같게 출력할 이렇게 사용하기도 한다.
+                    text = "Today is wednesday!!";
+                    break;
+                default:
+                    text = "Looking forward to the Weekend!!";
+                    break;
+                case 4:
+                case 5:
+                    text = "Soon it is Weekend!!";
+                    break;
+                case 0:
+                case 6:
+                    text = "It is Weekend!!!"; //break 생략해봤음.
+            }
+            if(a === 1 || a === 2 || a === 3 || a === 4){
+                //여러개의 값이 들어오는 경우
+            }
+            
+            document.getElementById("result").innerHTML = text;
+        }
+    </script>
+</body>
+</html>  
