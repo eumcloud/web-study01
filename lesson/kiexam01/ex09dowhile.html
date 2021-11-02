@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>do while loop</title>
+</head>
+<body>
+    <h2> do while loop </h2>
+    <button onclick="myFunction()">
+        ClickMe
+    </button>
+    <div id="result"></div>
+  
+    <script>
+        function myFunction(){
+            var text ="";
+            
+            var i=0;
+            do{//반드시 한번은 실행시킨 후 while문을 참조한다.
+                text += "<br>The number is " +i;
+                i++;//주의하자
+            }while(i<5){
+                document.getElementById("result").innerHTML = text;
+            }
+            
+        }
+    </script>
+</body>
+</html>  
