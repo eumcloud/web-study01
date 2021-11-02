@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throw of try catch</title>
+</head>
+<body>
+    <h2> Throw of try/catch </h2>
+    
+    <input id="numcheck" type="text">
+    <button type="button" onclick="checkNumber()">ClickMe</button>
+    <div id="result"></div>
+  
+    <script>
+        function checkNumber(){
+            let message, x;
+            message = document.getElementById("result");
+            message.innerHTML = "";
+            
+            x = document.getElementById("numcheck").value;
+            
+            try{
+                if (x == "") throw "is Empty";
+                if (isNaN(x)) throw "not a number";
+                if(x > 10) throw "too high";
+                if(x <1) throw "too row";
+            }catch(error){
+                  message.innerHTML = "Input value " + error;      
+            }
+        }
+    </script>
+</body>
+</html>  

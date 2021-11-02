@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Catch statement</title>
+</head>
+<body>
+    <h2> Try Catch statement </h2>
+    <div id="result"></div>
+  
+    <script>
+        
+        function myFunction(){
+            document.getElementById("result").innerHTML = "this is correct method!!";
+        }
+        try{
+            addalert("Wellcome to Hell!!!");  //없는 함수를 일부러 실행시켜봤다.
+            // myFunction();
+        }catch(err){//브라우저가 잘못입력한 것을 err로 받아서 출력시키는것.
+            console.log(err);//개발중일떄는 콘솔에도 출력해가면서
+            
+            document.getElementById("result").innerHTML = err.message;
+            
+            
+            //예측되지 않는 에러가 발생했을경우 실행시키는 함수를 넣어도된다.
+            //정 모든 예측반경을 벗어난 경우 err메시지를 띄우도록 한다.
+        }
+    </script>
+</body>
+</html>  
