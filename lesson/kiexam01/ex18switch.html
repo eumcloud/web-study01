@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Sample</title>
+</head>
+<body>
+    <h2> Switch Sample </h2>
+    <input id="myInput" type="text">
+    <button onclick="myFunction()">ClickMe</button>
+    
+    <div id="result"></div>
+  
+    <script>
+        function myFunction(){
+            var text;
+            var fruits = document.getElementById("myInput").value;
+            
+            switch(fruits){
+                case "Banana":
+                    text = "Banana is good!!";
+                    break; //꼭 신경써서 넣자, break가 없으면 다음캐이스가 실행됨.
+                case "Orange":
+                    text = "I am not a fan of Orange";
+                    break;
+                case "Apple" || "apple":
+                    text = "How you like them apples?";
+                    break;
+                default:
+                    text = " I have never heard of that fruit ...";
+                    
+            //위와 같은 경우 if else문으로 해보자  ---feat. switch가 편할수있다.
+                    /* if(fruits === "Banana"){
+                            text = "Banana is good!!";
+                        }
+                        else if(fruits === "Orange"){
+                            text = "I am not a fan of Orange";
+                        }
+                        else if(fruits === "Apple"){
+                            text = "How you like them apples?";
+                        }
+                        else{
+                            text = " I have never heard of that fruit ...";
+                        }*/
+            }
+            
+            document.getElementById("result").innerHTML = text;
+        }
+    </script>
+</body>
+</html>  
