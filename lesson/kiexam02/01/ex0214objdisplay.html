@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObjectDisplay</title>
+</head>
+<body>
+    <h2> ObjectDisplay </h2>
+    <div id="result"></div>
+  
+    <script>
+        const person = {
+            name: "John",
+            age: 25,
+            city: "New York"
+        };
+        document.getElementById("result").innerHTML = 
+            person.name + ", " + person.age + ", " + person.city;
+        console.log(person);//콘솔에서는 오브젝트 내용이 그대로나오지만 innerHTML로 그냥 person 출력시키면 그냥[오브젝트다]라고만 나온다.
+    
+    </script>
+</body>
+</html>  
