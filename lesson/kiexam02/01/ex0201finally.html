@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finally</title>
+</head>
+<body>
+    <h2> finally </h2>
+    <input id="checknum" type="number">
+    <button type="button" onclick="myFunction()">ClickMe</button>
+    <div id="result"></div>
+  
+    <script>
+        function myFunction(){
+            var message, x;
+            message = document.getElementById("result");
+            message.innerHTML = "";
+            
+            x = document.getElementById("checkNum").value;
+            
+            try{
+                if(x == ("")) throw "Empty";
+                if(isNaN) throw "Not a number";
+                if(x > 10) throw "Too high";
+                if(x < 5) throw "Too low";
+            }catch(err){
+                message.innerHTML = "Error: " + err + ".";
+                
+            }finally{ //catch에서 에러구문을 던졌어도 실행되는 구문
+                document.getElementById("checkNum").value = "";
+            }
+        }
+    </script>
+</body>
+</html>  
