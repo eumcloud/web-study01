@@ -16,13 +16,13 @@
                 this.name = name;
             }
             static hello(){
-                return "Hello "+this.name;//이렇게 하면 클래스네임이 나온다.
+                return "Hello "+this.name;
                 //static : 실행시에 메모리에 먼저 올라간다. 정적으로 먼저 메모리에 적제되어 글로벌하게 사용됨. 따라서 let myCar부분 없이 동작.
             }
         }//end of Car name;
         
         let myCar = new Car("BMW X5");
-        //정척 메소드는 클래스에 정의
+        // 정척 메소드는 클래스에 정의
         // 객체에 대해서는 static 메소드를 호출 할 수 없고
         // 오브젝트의 클래스에서만 호출된다.
         document.getElementById("result").innerHTML = Car.hello(myCar);//메모리에 후차적으로 등재됨
