@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class practice i </title>
+</head>
+<body>
+    <h2> Class practice i  </h2>
+    <div id="result"></div>
+  
+    <script>
+        class Car{
+            constructor(name, year){
+                this.name = name;
+                this.year = year;   
+            }
+        }
+        
+        const myCar = new Car("Ford", 2020);
+        let result = document.getElementById("result");
+        result.innerHTML = myCar.name + " " + myCar.year;
+        
+    </script>
+</body>
+</html>  
