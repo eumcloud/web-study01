@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json Date</title>
+</head>
+<body>
+    <h2> Json Date </h2>
+    <div id="result"></div>
+  
+    <script>
+        const person = {
+            name: "John",
+            age: 25, /* function(){return 25;} 이거는 안되는게 맞음*/
+            city: "New York",
+            today: new Date()
+        };
+        
+        document.getElementById("result").innerHTML = JSON.stringify(person);
+    </script>
+</body>
+</html>  
