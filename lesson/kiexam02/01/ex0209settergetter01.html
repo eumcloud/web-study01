@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setter getter</title>
+</head>
+<body>
+    <h2> setter getter samples </h2>
+    <p id="result1"></p>
+    <p id="result2"></p>
+  
+    <script>
+        class Car{
+            constructor(brand){
+                this._carname = brand; //brand값을 _carname에 담았지만 은닉하기위해 아래처럼 set/get을 사용하여 은닉한다.
+            }
+            get carname(){ //실제 요소명(property name)을 숨기고 사용할때는 carname이라는 명칭으로 사용함으로서 '은닉'한다.
+                return this._carname;
+            }
+            set carname(x){
+                this._carname = x;
+            }
+        }// end of Car brand
+        
+        let myCar = new Car("BMW");
+        document.getElementById("result1").innerHTML = myCar.carname;
+        
+        myCar.carname = "Benz";        
+        document.getElementById("result2").innerHTML = myCar.carname;
+        
+            
+        
+    </script>
+</body>
+</html>  
