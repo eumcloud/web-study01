@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2> finally </h2>
-    <input id="checknum" type="number">
+    <input id="checknum" placeholder="숫자를 입력해보세요.">
     <button type="button" onclick="myFunction()">ClickMe</button>
     <div id="result"></div>
   
@@ -18,7 +18,7 @@
             message = document.getElementById("result");
             message.innerHTML = "";
             
-            x = document.getElementById("checkNum").value;
+            x = document.getElementById("checknum").value;
             
             try{
                 if(x == ("")) throw "Empty";
@@ -29,7 +29,7 @@
                 message.innerHTML = "Error: " + err + ".";
                 
             }finally{ //catch에서 에러구문을 던졌어도 실행되는 구문
-                document.getElementById("checkNum").value = "";
+                document.getElementById("checknum").value = "";
             }
         }
     </script>
