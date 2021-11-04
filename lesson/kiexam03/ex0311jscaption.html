@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js Caption</title>
+    <style> table, th, td{ border:1px solid black; }
+        button{height:40px;}
+</style>
+</head>
+<body>
+    <h2> js Caption </h2>
+    <button onclick="setCaption()">ClickMe</button>
+    <table>
+        
+      <tr><caption id="myCap">MyCaption contents</caption>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Argentina</th>
+      </tr>
+      <tr>
+          <td>Apple</td>
+          <td>abc@gmail.com</td>
+          <td>Sweden</td>
+      </tr>
+        <tr>
+            <td>Benz</td>
+            <td>benz@gmail.com</td>
+            <td>Korean</td>
+        </tr>
+    </table>
+    
+    <script>
+        function setCaption(){
+            document.getElementById("myCap").style.captionSide = "bottom";
+        }
+    </script>
+</body>
+</html>  
