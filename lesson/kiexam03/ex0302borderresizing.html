@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Resizing</title>
+    <style>
+        #container{border:solid 1px solid;}
+        
+        div.box{
+            width:150px;
+            border: 3px solid coral;
+            float: left;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2> Border Resizing </h2>
+    <div id="result"></div>
+      <div class="container">
+          <div class="box" id="box1">This is box1</div>
+          <div class="box" id="box2">This is box2</div>
+          <div style="clear:both"></div>
+      </div>
+    <button onclick="myFunction()">ClickMe</button>
+    <script>
+        function myFunction(){
+            // document.getElementById("box1").style.MozBoxSizing = "border-box"; // old Firefox
+            // document.getElementById("box2").style.MozBoxSizing = "border-box"; // old Firefox
+            document.getElementById("box1").style.boxSizing = "border-box";
+            document.getElementById("box2").style.boxSizing = "border-box";
+        }
+    
+    </script>
+</body>
+</html>  
