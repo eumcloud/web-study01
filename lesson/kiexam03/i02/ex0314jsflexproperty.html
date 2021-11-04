@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js flexProperty</title>
+    <style>#myDiv{
+        width:280px; height:300px; 
+        border: 2px solid black;
+        display: flex;
+        }div{border:dotted 2px coral;}
+    </style>
+</head>
+<body>
+    <h2> js flexProperty </h2>
+    <button onclick="setMyFlex()">ClickMe</button>
+    <div id="myDiv">
+        <div style="background-color: coral;">Coral</div>
+        <div style="background-color: lightblue;">lightblue</div>
+        <div style="background-color: lightgreen;">lightgreen Div with more content </div>
+    </div>
+  
+    <script>
+        function setMyFlex(){
+            var x = document.getElementById("myDiv");
+            var y = x.getElementsByTagName("div");
+            var i = 0;
+            
+            for (let i = 0; i < y.legnth; i++ ){ //
+                y[i].style.msFlex = "1"; //IE10 - msFlex지원
+                y[i].style.flex = "1"; //범용
+            }
+        }
+    </script>
+</body>
+</html>  
