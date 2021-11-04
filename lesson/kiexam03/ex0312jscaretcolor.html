@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js CaretColor</title>
+    <style> input{height:40px; caret-color:coral;}</style>
+</head>
+<body>
+    <h2> js CaretColor </h2>
+    <div id="result"></div>
+    <input id="input1" class="custom" value="Custom caret color"><br><br>
+    <button onclick="setCaretColor()">ClickMe</button>
+    <script>
+        function setCaretColor(){
+            document.getElementById("input1").style.caretColor = "red";
+        }
+    </script>
+</body>
+</html>  
