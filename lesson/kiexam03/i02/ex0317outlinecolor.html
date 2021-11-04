@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js Outline Color</title>
+    <style>
+        #myDiv{ 
+            border: 1px solid red;
+            outline-style: dotted ;}
+    </style>
+</head>
+<body>
+    <h2> js Outline Color </h2>
+    <div id="myDiv">This is div element.</div>
+    <button onclick="changeOutline()">ClickMe</button>
+  
+    <script>
+        function changeOutline(){
+            document.getElementById("myDiv").style.outlineColor = "skyblue";
+        }
+    </script>
+</body>
+</html>  
