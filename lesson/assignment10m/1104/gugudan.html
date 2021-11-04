@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--  [구구단 콘솔 출력] - console / hltml/css 찍기
+1. 세로출력, 단과 단사이는 한줄띄기 가로출력
+2. 가로출력 
+-->
+    <style> 
+        * { margin: 5px; padding: 5px; font-size:12px;}
+        div {
+            display:flex; 
+            /* border:dotted 2px coral; */
+            position: relative; 
+            height:100%;
+            flex-grow : 1;
+        }
+        #gcolumn{width:50%;height:100%;}
+        #grow{width:50%;height:100%;}
+    </style>
+</head>
+    
+<body>
+    <h2> 구구단 콘솔에 찍기 && HTML/CSS찍기 </h2>
+    <div>
+        <div id="ggcolumn"></div>    
+        <div id="ggrow"></div>
+    </div>
+    
+
+  
+    <script>
+    let print_column_html = "", sp = "&nbsp;", br = "<br>";
+        for(i=1; i<10; i++){
+            for(j=1; j<10; j++){
+                print_column_html += i + " x " + j + " = " + i*j + br;
+            }print_column_html += br;
+        }
+        document.getElementById("ggcolumn").innerHTML = print_column_html;
+        
+    let print_column_console="", t = '\t', n = '\n';
+    for (i=1; i<10; i++){
+        for(j=1; j<10; j++){
+            print_column_console += i+" x "+j+" = "+i * j + n;
+        } print_column_console += n;
+    } console.log(print_column_console);
+        
+    let print_row_console = "";
+        for(i=1; i<10; i++){
+            for(r=1; r<10; r++){
+                print_row_console += i + " x " + r + " = " + i * r;
+                if(r!=9) print_row_console += "___";
+                if(i*r <10) print_row_console += " ";
+            }print_row_console += n;
+        }console.log(print_row_console);
+        
+    let print_row_html = "";
+        for(i=1; i<10; i++){
+            for(r=1; r<10; r++){
+                print_row_html += i + " x " + r + " = " + i * r;
+                if(r!=9) print_row_html +=  "___";
+                if(i*r < 10 ) print_row_html+= "&nbsp;";
+                
+            }print_row_html += "<br>";
+        }
+        document.getElementById("ggrow").innerHTML = print_row_html;
+    </script>
+</body>
+</html>  
