@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js BoxShadow</title>
+    <style>
+        #myDiv{ position: absolute; width:200px; height:200px;
+        background-color: purple; color:white;}
+    </style>
+</head>
+<body>
+    <h2> js BoxShadow </h2>
+    <button onclick="setShadow()">ClickMe</button>
+    <div id="myDiv"><h1>Hello world</h1></div><br>
+      
+    <script>
+        function setShadow(){
+            document.getElementById("myDiv").style.boxShadow = "10px 20px 30px gray";
+        }
+    </script>
+</body>
+</html>  
