@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <h2> Arrow Function </h2>
+    <div id="result"></div>
+  
+    <script>
+        //1) var hello;
+        // hello = ()=>{
+        //     return "hello world!!";
+        // }
+            //2)    hello = ()=> "hello world!!!";
+        // hello = (val)=> "Hello" + val;
+        // hello = val=> "Hello" + val; //이것도 된다.
+        hello = (val)=> {return "Hello" + val;} //*** 권장하는 방법이다.***
+            
+        // document.getElementById("result.").innerHTML = hello();
+        document.getElementById("result").innerHTML = hello(" world!!");
+    </script>
+</body>
+</html>  
