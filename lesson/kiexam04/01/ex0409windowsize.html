@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Resize</title>
+</head>
+<body onresize="windowSize()"><!-- here -->
+    <h2> Windows resize width and height </h2>
+    <div id="result"></div>
+  
+    <script>
+        
+        function windowSize(){
+            var w = window.outerWidth;
+            var h = window.outerHeight;
+            var txt = "Window size : width = " + w + ", " + h;
+            document.getElementById("result").innerHTML = txt; //브라우저를 리사이즈 하면 크기값을 알 수 있음.
+        }
+    </script>
+</body>
+</html>  
