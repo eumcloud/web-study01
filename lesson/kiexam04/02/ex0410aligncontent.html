@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Align Content</title>
+    <style>
+        #main{
+            width: 140px; height: 300px;
+            border: 2px solid #000000;
+            display:flex;
+            flex-flow: row wrap;
+            align-content: space-around;
+        }
+        #main div{ width:70px; height: 70px; background-color:lightcoral;}
+    </style>
+</head>
+<body>
+    <h2> Align Content </h2>
+    <button onclick="changeAlign()">Align Content</button>
+    <div id="main">
+        <div style="background-color: coral;"></div>
+        <div style="background-color: lightblue;"></div>
+        <div style="background-color: lightgreen;"></div>
+        <div style="background-color: pink;"></div>
+        <div style="background-color: lightgray;"></div>
+        <div style="background-color: yellowgreen;"></div>
+    </div>
+      
+    <script>
+        function changeAlign(){
+            document.getElementById("main").style.alignContent = "space-between";
+            //부모박스 안에서 div박스 사이의 공백을 띄워줌
+        }
+    </script>
+</body>
+</html>  
