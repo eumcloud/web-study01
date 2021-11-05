@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What about "this"</title>
+</head>
+<body>
+    <h2> What about "this" </h2>
+    <button id="btn">ClickMe</button>
+    <div id="result"></div>
+  
+    <script>
+        var hello;
+        hello = function(){
+            document.getElementById("result").innerHTML +=  this;
+        }
+        //window(object) == 브라우저
+        window.addEventListener("load", hello); 
+        document.getElementById("btn").addEventListener("click", hello);
+    </script>
+</body>
+</html>  
