@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            position: relative;
+        }
+
+        div {
+            width: 280px;
+            left: 10px;
+            text-align: center;
+            padding: 8px;
+            border: solid 1px coral;
+            border-radius: 5px;
+            margin: 10px;
+            margin-bottom: 15px;
+            font-size:15px;
+            font-weight:bold;
+        }
+        div.ol{width:120px; height:120px; border-radius: 120px;
+               display: flex; justify-content: center; flex-direction: column;
+               margin:20%;
+        }
+        .ol:hover,
+        .li:hover {
+            left:20px; -webkit-box-shadow: 12px 11px 15px 5px coral;
+            box-shadow: 12px 11px 15px 5px coral;
+        } .li{font-size:12px;}
+
+        #frame{ width:97%; margin:0; padding:0; left:0; border: dotted black; overflow:auto;} 
+        .frame{
+            left: 15%; height: 250px;
+            border: dotted gray 1px;;
+            position:relative;
+            display: block; 
+            justify-content: center;
+            /* flex-direction: column-reverse; */
+        }
+        .diver {
+            border: dotted 0.5px;
+            display:block;
+            /* flex-direction: column-reverse; */
+            
+        /* 좌우측 div */
+        } .diver.right{ 
+            left: 80%;
+            top: -95%;
+        } .diver.left {
+            left: -58%;
+            top: -200%;
+        }
+        /* li 리스트 */
+        .li.right {
+            width:180px;
+            margin-left: 10%;
+            /* display: none; */
+        }
+        .li.left {
+            width:150px;
+            margin-left: -0%;
+            
+            /* display: none; */
+        }
+
+         #back{left: 0; margin:0; padding:0; border:none; position:absolute; opacity: 0.5;}
+
+    </style>
+</head>
+
+<body>
+    <div id="back">
+        <!-- <script>
+            let w = window.outerWidth;
+            let img = document.getElementById("back").innerHTML = "<img src='https://placeimg.com/"+w +"/480' >"
+            console.log(w);
+        </script> -->
+    </div>
+    <div id="frame">
+        
+        <div class="frame">
+            <div class="ol"> Internet</div>
+            <!-- 좌우박스 -->
+            <div class="diver right">
+                <div class="li right"> HTTP란 무엇인가? </div>
+                <div class="li right"> Hosting이 무엇인가?</div>
+                <div class="li right"> DNS: Domain Name System이란?</div>
+                <div class="li right"> 브라우저의 작동원리?</div>
+            </div>
+            <div class="diver left">
+                <div class="li left">diver li left</div>
+            </div>
+        </div>
+
+        <div class="frame">
+            <div class="ol ">HTML / CSS</div>
+            <!-- 좌우박스 -->
+            
+        </div>
+        <div class="frame">
+            <div class="ol ">Javascript</div>
+            <!-- 좌우박스 -->
+        </div>
+        <div class="frame">
+            <div class="ol ">자료구조 및 알고리즘</div>
+            <!-- 좌우박스 -->
+        </div>
+        <div class="frame">
+            <div class="ol ">OS와 전반적인 지식</div>
+            <!-- 좌우박스 -->
+            <div class="diver right">
+                <div class="li right"> Memory 관리방식 </div>
+                <div class="li right"> 프로세스 로직 방식 </div>
+                <div class="li right"> I/O 관리 </div>
+                <div class="li right"> POSIX 기초 <br> stdin, stdout, stderr, pipes </div>
+                <div class="li right"> 네트워크 기반 개념</div>
+            </div>
+    
+            <div class="diver left">
+                <div class="li left"> Ternminal 사용법 </div>
+                <div class="li left"> 111</div>
+                <div class="li left"> OS 작동방식</div>
+                <div class="li left"> 프로세스와 쓰레드 관리</div>
+                <div class="li left"> 기본 Terminal 명령어
+                    <br> grep, awk, sed, lsof, curl, wget,
+                    <br> tail, head, less, find, ssh, kill
+                </div>
+            </div>
+        </div>
+    
+    <div class="frame">
+        
+    </div>
+    <div class="frame">
+        <div class="ol">Choice personal main force language</div>
+        <div class="diver right">
+            <div class="li right"> Javacript </div>
+            <div class="li right"> Python </div>
+            <div class="li right"> Ruby </div>
+            <div class="li right"> POSIX 기초 <br> stdin, stdout, stderr, pipes </div>
+            <div class="li right"> 네트워크 기반 개념</div>
+        </div> 
+
+        <div class="diver left">
+            <div class="li left"> C#, C++ </div>
+            <div class="li left"> JAVA </div>
+            <div class="li left"> PHP</div>
+        </div>
+    </div>
+    <div class="frame">
+        <div class="ol ">React.js</div>
+    </div>
+    <div class="ol ">Database Modeling RDB & DML & TCL</div>
+    <div class="ol ">Node.js & API</div>
+    <div class="ol ">Construct C++ Programming</div>
+    <div class="ol ">Solidity Fintech SmartContract Dev</div>
+    <div class="ol ">Klaytn Application Service</div>
+    <div class="ol ">Fintech ecosystem Dapp Project</div>
+    <div class="ol ">Collaboration for Buisness and Market</div>
+    </div>
+</div>
+
+<script>
+
+    let laguageContents = [];
+    laguageContents.push("Javacript");
+
+    for (i in laguageContents){
+        document.getElementById(frame);
+    }
+</script>
+</body>
+
+</html>
