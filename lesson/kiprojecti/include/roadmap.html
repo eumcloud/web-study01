@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 
     <style>
         * {
@@ -50,21 +51,22 @@
             
         /* 좌우측 div */
         } .diver.right{ 
-            left: 80%;
+            left: 75%;
             top: -95%;
         } .diver.left {
-            left: -58%;
-            top: -200%;
+            left: -60%;
+            top: -170%;
         }
         /* li 리스트 */
         .li.right {
-            width:180px;
+            width:200px;
             margin-left: 10%;
             /* display: none; */
         }
         .li.left {
-            width:150px;
-            margin-left: -0%;
+            width:220px;
+            margin-left: 0%;
+            
             
             /* display: none; */
         }
@@ -87,22 +89,48 @@
         <div class="frame">
             <div class="ol"> Internet</div>
             <!-- 좌우박스 -->
-            <div class="diver right">
-                <div class="li right"> HTTP란 무엇인가? </div>
-                <div class="li right"> Hosting이 무엇인가?</div>
-                <div class="li right"> DNS: Domain Name System이란?</div>
-                <div class="li right"> 브라우저의 작동원리?</div>
-            </div>
-            <div class="diver left">
-                <div class="li left">diver li left</div>
-            </div>
+            <div class="diver right"></div>
+            <div class="diver left"></div>
         </div>
+
+       
 
         <div class="frame">
             <div class="ol ">HTML / CSS</div>
             <!-- 좌우박스 -->
             
         </div>
+        <script>
+            let internetLeft =[], internetRight=[];
+            internetLeft.push('Internet은 어떻게 작동하는가?');
+            internetLeft.push('Hosting이 무엇인가?');
+            
+            internetRight.push('DNS: Domain Name System이란?')
+            internetRight.push('브라우저의 작동원리?')
+            
+            for(i=0;i<internetLeft.length; i++){
+                document.getElementsByClassName("diver left")[0].innerHTML += "<div class='li left'>"+internetLeft[i]+"</div>";
+            }
+            for(i=0;i<internetRight.length;i++){
+                document.getElementsByClassName("diver right")[0].innerHTML += "<div class='li right'>"+internetRight[i]+"</div>";
+            }
+
+        </script>
+        <script>
+            let htmlcssLeft =[], htmlcssRight=[];
+            htmlcssLeft.push('Internet은 어떻게 작동하는가?');
+            htmlcssLeft.push('Hosting이 무엇인가?');
+            
+            htmlcssRight.push('DNS: Domain Name System이란?')
+            htmlcssRight.push('브라우저의 작동원리?')
+            
+            for(i=0;i<htmlcssLeft.length; i++){
+                document.getElementsByClassName("diver left")[0].innerHTML += "<div class='li left'>"+htmlcssLeft[i]+"</div>";
+            }
+            for(i=0;i<htmlcssRight.length;i++){
+                document.getElementsByClassName("diver right")[0].innerHTML += "<div class='li right'>"+htmlcssRight[i]+"</div>";
+            }
+        </script>
         <div class="frame">
             <div class="ol ">Javascript</div>
             <!-- 좌우박스 -->
@@ -168,13 +196,9 @@
 
 <script>
 
-    let laguageContents = [];
-    laguageContents.push("Javacript");
 
-    for (i in laguageContents){
-        document.getElementById(frame);
-    }
 </script>
+
 </body>
 
 </html>
