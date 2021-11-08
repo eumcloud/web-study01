@@ -29,20 +29,19 @@
                display: flex; justify-content: center; flex-direction: column;
                margin:20%;
         }
-        .ol:hover,
-        .li:hover {
+        .ol:hover, .li:hover {
             left:20px; -webkit-box-shadow: 12px 11px 15px 5px coral;
             box-shadow: 12px 11px 15px 5px coral;
         } .li{font-size:12px;}
 
         #frame{ width:97%; margin:0; padding:0; left:0; border: dotted black; overflow:auto;} 
         .frame{
-            left: 15%; height: 250px;
+            left: 23%; height: 250px;
             border: dotted gray 1px;;
             position:relative;
-            display: block; 
+            display: block; /*flex로 변경시 아래 flex-directtion 적용*/
             justify-content: center;
-            /* flex-direction: column-reverse; */
+            flex-direction: column-reverse;
         }
         .diver {
             border: dotted 0.5px;
@@ -52,10 +51,10 @@
         /* 좌우측 div */
         } .diver.right{ 
             left: 75%;
-            top: -95%;
+            top: -200px;
         } .diver.left {
-            left: -60%;
-            top: -170%;
+            left: -80%;
+            top: -350px;;
         }
         /* li 리스트 */
         .li.right {
@@ -93,110 +92,195 @@
             <div class="diver left"></div>
         </div>
 
-       
-
         <div class="frame">
             <div class="ol ">HTML / CSS</div>
             <!-- 좌우박스 -->
-            
+            <div class="diver left"></div>
+            <div class="diver right"></div>
         </div>
-        <script>
-            let internetLeft =[], internetRight=[];
-            internetLeft.push('Internet은 어떻게 작동하는가?');
-            internetLeft.push('Hosting이 무엇인가?');
             
-            internetRight.push('DNS: Domain Name System이란?')
-            internetRight.push('브라우저의 작동원리?')
-            
-            for(i=0;i<internetLeft.length; i++){
-                document.getElementsByClassName("diver left")[0].innerHTML += "<div class='li left'>"+internetLeft[i]+"</div>";
-            }
-            for(i=0;i<internetRight.length;i++){
-                document.getElementsByClassName("diver right")[0].innerHTML += "<div class='li right'>"+internetRight[i]+"</div>";
-            }
-
-        </script>
-        <script>
-            let htmlcssLeft =[], htmlcssRight=[];
-            htmlcssLeft.push('Internet은 어떻게 작동하는가?');
-            htmlcssLeft.push('Hosting이 무엇인가?');
-            
-            htmlcssRight.push('DNS: Domain Name System이란?')
-            htmlcssRight.push('브라우저의 작동원리?')
-            
-            for(i=0;i<htmlcssLeft.length; i++){
-                document.getElementsByClassName("diver left")[0].innerHTML += "<div class='li left'>"+htmlcssLeft[i]+"</div>";
-            }
-            for(i=0;i<htmlcssRight.length;i++){
-                document.getElementsByClassName("diver right")[0].innerHTML += "<div class='li right'>"+htmlcssRight[i]+"</div>";
-            }
-        </script>
         <div class="frame">
             <div class="ol ">Javascript</div>
             <!-- 좌우박스 -->
+            <div class="diver left"></div>
+            <div class="diver right"></div>
         </div>
+        
         <div class="frame">
             <div class="ol ">자료구조 및 알고리즘</div>
             <!-- 좌우박스 -->
+            <div class="diver left"></div>
+            <div class="diver right"></div>
         </div>
         <div class="frame">
             <div class="ol ">OS와 전반적인 지식</div>
             <!-- 좌우박스 -->
-            <div class="diver right">
-                <div class="li right"> Memory 관리방식 </div>
-                <div class="li right"> 프로세스 로직 방식 </div>
-                <div class="li right"> I/O 관리 </div>
-                <div class="li right"> POSIX 기초 <br> stdin, stdout, stderr, pipes </div>
-                <div class="li right"> 네트워크 기반 개념</div>
-            </div>
-    
-            <div class="diver left">
-                <div class="li left"> Ternminal 사용법 </div>
-                <div class="li left"> 111</div>
-                <div class="li left"> OS 작동방식</div>
-                <div class="li left"> 프로세스와 쓰레드 관리</div>
-                <div class="li left"> 기본 Terminal 명령어
-                    <br> grep, awk, sed, lsof, curl, wget,
-                    <br> tail, head, less, find, ssh, kill
-                </div>
-            </div>
-        </div>
-    
-    <div class="frame">
+            <div class="diver right"></div>
+            <div class="diver left"></div>
+        </div>                       
         
-    </div>
-    <div class="frame">
-        <div class="ol">Choice personal main force language</div>
-        <div class="diver right">
-            <div class="li right"> Javacript </div>
-            <div class="li right"> Python </div>
-            <div class="li right"> Ruby </div>
-            <div class="li right"> POSIX 기초 <br> stdin, stdout, stderr, pipes </div>
-            <div class="li right"> 네트워크 기반 개념</div>
-        </div> 
-
-        <div class="diver left">
-            <div class="li left"> C#, C++ </div>
-            <div class="li left"> JAVA </div>
-            <div class="li left"> PHP</div>
+        <div class="frame">
+            <div class="ol">주력 언어 선택</div>
+            <!-- 좌우박스 -->
+            <div class="diver right"></div> 
+            <div class="diver left"></div>
         </div>
+        <div class="frame">
+            <div class="ol ">React.js</div>
+            <!-- 좌우박스 -->
+            <div class="diver right"></div>
+            <div class="diver left"></div>
+        </div>
+        <div class="frame">
+            <div class="ol ">Database Modeling RDB & DML & TCL</div>
+            <!-- 좌우박스 -->
+            <div class="diver right"></div>
+            <div class="diver left"></div>
+        </div>
+
+        <div class="frame">
+            <div class="ol ">Node.js & API</div>
+                <!-- 좌우박스 -->
+            <div class="diver right"></div>
+            <div class="diver left"></div>
+        </div>
+        
+        <div class="frame">
+            <div class="ol ">Construct C++ Programming</div>
+                <!-- 좌우박스 -->
+                <div class="diver right"></div>
+                <div class="diver left"></div>
+        </div>
+        <div class="frame">
+            <div class="ol ">Solidity Fintech SmartContract Dev</div>
+                <!-- 좌우박스 -->
+                <div class="diver right"></div>
+                <div class="diver left"></div>
+            
+        </div>
+        <div class="frame">
+            <div class="ol ">Klaytn Application Service</div>
+                <!-- 좌우박스 -->
+                <div class="diver right"></div>
+                <div class="diver left"></div>
+            
+        </div>
+        <div class="frame">
+            <div class="ol ">Fintech ecosystem Dapp Project</div>
+                <!-- 좌우박스 -->
+                <div class="diver right"></div>
+                <div class="diver left"></div>
+            
+        </div>
+        <div class="frame">
+            <div class="ol ">Collaboration for Buisness and Market</div>
+                <!-- 좌우박스 -->
+                <div class="diver right"></div>
+                <div class="diver left"></div>
+        </div>
+
     </div>
-    <div class="frame">
-        <div class="ol ">React.js</div>
-    </div>
-    <div class="ol ">Database Modeling RDB & DML & TCL</div>
-    <div class="ol ">Node.js & API</div>
-    <div class="ol ">Construct C++ Programming</div>
-    <div class="ol ">Solidity Fintech SmartContract Dev</div>
-    <div class="ol ">Klaytn Application Service</div>
-    <div class="ol ">Fintech ecosystem Dapp Project</div>
-    <div class="ol ">Collaboration for Buisness and Market</div>
-    </div>
-</div>
 
 <script>
+    let internetLeft =[], internetRight=[];
+    internetLeft.push('Internet은 어떻게 작동하는가?');
+    internetLeft.push('Hosting이 무엇인가?');
+    
+    internetRight.push('DNS: Domain Name System이란?')
+    internetRight.push('브라우저의 작동원리?')
+    
+    for(i=0;i<internetLeft.length; i++){
+        document.getElementsByClassName("diver left")[0].innerHTML += "<div class='li left'>"+internetLeft[i]+"</div>";
+    }
+    for(i=0;i<internetRight.length;i++){
+        document.getElementsByClassName("diver right")[0].innerHTML += "<div class='li right'>"+internetRight[i]+"</div>";
+    }
+
+    let htmlcssLeft =[], htmlcssRight=[];
+    htmlcssLeft.push('의미론적(Sementic) HTML을 작성할 수 있는가?');
+    htmlcssLeft.push('폼과 유효성 검사');
+    htmlcssLeft.push('컨벤션과 모범사례(Best Practice');
+    
+    htmlcssRight.push('접근성에대한 이해')
+    htmlcssRight.push('기본 SEO 정보를 관리할 수 있는가?')
+    htmlcssRight.push('레이아웃을 구성할 수 있는가?')
+    htmlcssRight.push('반응형 디자인과 미디어 쿼리를 할 수 있는가?')
+    
+    for(i=0;i<htmlcssLeft.length; i++){
+        document.getElementsByClassName("diver left")[1].innerHTML += "<div class='li left'>"+htmlcssLeft[i]+"</div>";
+    }
+    for(i=0;i<htmlcssRight.length; i++){
+        document.getElementsByClassName("diver right")[1].innerHTML += "<div class='li right'>"+htmlcssRight[i]+"</div>";
+    }
+
+    let javascriptLeft =[], javascriptRight=[];
+    javascriptLeft.push('구문(Syntax)과 기본 문법');
+    javascriptLeft.push('DOM 조작방법');
+    
+    javascriptRight.push('FetchAPI / Ajax(XHR) 활용 가능한가?')
+    javascriptRight.push('모듈러 Javascript와 ES6+ ')
+    javascriptRight.push('개념이해 : <br> 호이스팅, 이벤트 버블링, 스코프 프로토타입, Shadow DOM, strict 등')
+    
+    for(i=0;i<javascriptLeft.length; i++){
+        document.getElementsByClassName("diver left")[2].innerHTML += "<div class='li left'>"+javascriptLeft[i]+"</div>";
+    }
+    for(i=0;i<javascriptRight.length; i++){
+        document.getElementsByClassName("diver right")[2].innerHTML += "<div class='li right'>"+javascriptRight[i]+"</div>";
+    }
+    let osgeneralLeft =[], osgeneralRight=[];
+    osgeneralLeft.push('Ternminal 사용법');
+    osgeneralLeft.push('OS 작동방식');
+    osgeneralLeft.push('프로세스와 쓰레드 관리');
+    osgeneralLeft.push('네트워크 기반 개념');
+    osgeneralLeft.push(`기본 Terminal 명령어
+            <br> grep, awk, sed, lsof, curl, wget,
+            <br> tail, head, less, find, ssh, kill`);
+    
+    osgeneralRight.push('Memory 관리방식');
+    osgeneralRight.push('프로세스 로직 방식');
+    osgeneralRight.push('I/O 관리');
+    osgeneralRight.push('POSIX 기초 <br> stdin, stdout, stderr, pipes');
+    
+    for(i=0;i<osgeneralLeft.length; i++){
+        document.getElementsByClassName("diver left")[4].innerHTML += "<div class='li left'>"+osgeneralLeft[i]+"</div>";
+    }
+    for(i=0;i<osgeneralRight.length;i++){
+        document.getElementsByClassName("diver right")[4].innerHTML += "<div class='li right'>"+osgeneralRight[i]+"</div>";
+    }
+
+    let dataStructureLeft =[], algorithmRight=[];
+    dataStructureLeft.push('Ternminal 사용법');
+    dataStructureLeft.push('OS 작동방식');
+
+    algorithmRight.push('');
+
+    for(i=0;i<osgeneralLeft.length; i++){
+        document.getElementsByClassName("diver left")[5].innerHTML += "<div class='li left'>"+dataStructureLeft[i]+"</div>";
+    }
+    for(i=0;i<osgeneralRight.length;i++){
+        document.getElementsByClassName("diver right")[5].innerHTML += "<div class='li right'>"+algorithmRight[i]+"</div>";
+    }
 
 
+    let langLeft=[], langRight=[];
+    langLeft.push('Javacript');
+    langLeft.push('Python');
+    langLeft.push('Ruby');
+    langLeft.push('POSIX 기초 <br> stdin, stdout, stderr, pipes');
+    langLeft.push('네트워크 기반 개념');
+    
+    langRight.push('C#, C++');
+    langRight.push('JAVA');
+    langRight.push('PHP');
+
+    for(i=0;i<langLeft.length; i++){
+        document.getElementsByClassName("diver left")[6].innerHTML += "<div class='li left'>"+langLeft[i]+"</div>";
+    }
+    for(i=0;i<langRight.length;i++){
+        document.getElementsByClassName("diver right")[6].innerHTML += "<div class='li right'>"+langRight[i]+"</div>";
+    }
+        
+       
 </script>
 
 </body>
