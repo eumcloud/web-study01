@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/mainpage.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+    <style>
+        *{ position:relative;} 
+        a:hover, a:visited{text-decoration:none; color:black;}
+        ol,ul,li{ text-decoration:none; padding:0; margin: 8px;}
+        div{border: solid 0.5px coral; color:black;}
+        span{padding: 0 10px;}
+        
+        #header{
+            display:  flex;
+        }#header div,span{padding:8px; margin:5px; }
+          #header span{display:inline-block;  
+            float: right; right:5%;
+            border:solid 0.5px skyblue;  }
+          #menus {width:90%;}
+        
+        
+        #contents {height:100%; padding: 15px;}
+    </style>
+    <script>
+    class roadmap{
+        constructor(head,box,foot){
+            this.head = head;
+            this.box = box;
+            this.foot = foot;
+        }
+        mainframe(){
+            document.write("<div id='header'>Header</div>");
+            document.write("<div id='contents'>Contents</div>");
+            document.write("<div id='footer'>Footer</div>");
+            
+            let headprops = "<div id='logo'>BlockChains roadMap</div>";
+            headprops += "<div id='menus'>";
+            let menus = ["menu I","menu I","menu I"];
+            
+            for(let i=0; i<menus.length; i++){
+                 headprops+= "<span>"+menus[i]+"</span>";   
+            }
+            document.getElementById("header").innerHTML = headprops;
+        }
+    }
+    
+       let maps = new roadmap();
+       maps.mainframe();
+    </script>
+    <script>
+        class contents{
+            constructor(title, content){
+                this.title = title;
+                this.contents = content;
+            }
+            content(){
+                
+                this.title = ["Internet", "HTML/CSS", "Javscript"];
+                let contents = "<div class='frame"+i+"'>"+this.title+"</div>";
+                
+                document.
+                for(let i=0; i<content.length;i++){
+                    if(i%2==1){
+                        
+                        document.getByClassNames("header").appendChild(document.createTextNode("<span>"+this.title[i]+"</span>"));
+                    }
+                    if(i%2==0){
+                        contents+= document.getByClassNames('diver right').appendChild("<span>"+content[i]+"</span>");
+                    }
+                    
+                }
+                
+                let construct = "<div class='frame'>"+this.title+"</div>";
+                let basic = document.getElementById("conetents");
+                basic.innerHTML = construct;
+                
+                //document.getElementById("header").appendChild(document.createTextNode('<span>span</span>'));
+            }
+        }
+        let addcontent = new contents("Internet");
+        addcontent.content();
+    </script>
+<body>
+    
+    
+</body>    
+</html>
