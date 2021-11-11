@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>가로 카드게시판</title>
 </head>
 <body>
     
@@ -14,7 +14,7 @@
          document.write("<div id='list'></div>")
          //배열 임의값 생성
          let idx=[], title=[], content=[], img=[]; 
-         idx.push(1,2,3,4,5,6,7,8,9), title.push(1,2,3,4,5,6,7,8,9), content.push(1,2,3,4,5,6,7,8,9);
+         idx.push(1,2,3,4,5,6,7,8,9,10,11,12), title.push(1,2,3,4,5,6,7,8,9,10,11,12), content.push(1,2,3,4,5,6,7,8,9,10,11,12);
          for(i=0; i<idx.length; i++){
              img.push('https://picsum.photos/300/120');
          }
@@ -26,10 +26,10 @@
         cardsprint += 
             `<div class="cardframe">
     <img src="https://picsum.photos/300/120">
-    <div class="title">`
+    <div class="title" style="padding:10px;">`
         //배열에 title 값
             +title[i]+`</div>
-    <div class="contents">`
+    <div class="contents" style="padding:20px;">`
       //배열에 내용값      
     +content[i]+`
          </div>
@@ -41,17 +41,18 @@
              <style>
              #list{ width:150%;
              overflow:hidden; display:flex; 
-             border:solid 1px coral; height:450px;
+             border:; height:450px;
              width:calc(100% / 4);
     animation:slide 8s infinite; width:calc(300px * `+idx.length+`);
              }
   .cardframe{ 
     margin: 5px; 
-    border:solid skyblue 0.5px; 
+    border:solid lightgrey 0.5px; 
     width:300px; height:440px;
     border-radius: 10px;
-    
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
     }
+   
   .cardframe img{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -69,7 +70,6 @@
     }
 </style>
 `;
-      
         document.getElementById("list").innerHTML= cardsprint;
     </script>
 </body>
