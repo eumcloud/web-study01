@@ -9,13 +9,12 @@
 <body>
     
 <!-- <h2>옆으로 게시판</h2> -->
-    <div id="list">
-        
-    </div>
+    
      <script>
+         document.write("<div id='list'></div>")
          //배열 임의값 생성
          let idx=[], title=[], content=[], img=[]; 
-         idx.push(1,2,3,4), title.push(1,2,3,4), content.push(1,2,3,4);
+         idx.push(1,2,3,4,5,6,7,8,9), title.push(1,2,3,4,5,6,7,8,9), content.push(1,2,3,4,5,6,7,8,9);
          for(i=0; i<idx.length; i++){
              img.push('https://picsum.photos/300/120');
          }
@@ -40,24 +39,38 @@
          cardsprint += 
              `
              <style>
-             #list{overflow:hidden; display:flex; border:solid 1px coral; height:450px;}
-  .cardframe{ margin: 5px;
-    border:solid skyblue 0.5px; width:300px; height:440px;
+             #list{ width:150%;
+             overflow:hidden; display:flex; 
+             border:solid 1px coral; height:450px;
+             width:calc(100% / 4);
+    animation:slide 8s infinite; width:calc(300px * `+idx.length+`);
+             }
+  .cardframe{ 
+    margin: 5px; 
+    border:solid skyblue 0.5px; 
+    width:300px; height:440px;
     border-radius: 10px;
+    
     }
   .cardframe img{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     }.title{text-align:center; font-weight:bold;}
+    @keyframes slide {
+      0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+      10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+      25% {margin-left:-300px;} /* 25 ~ 35 : 정지 */
+      35% {margin-left:-300px;} /* 35 ~ 50 : 변이 */
+      50% {margin-left:-600px;}
+      60% {margin-left:-600px;}
+      75% {margin-left:-750px;}
+      85% {margin-left:-750px;}
+      100%{left:0;}
+    }
 </style>
 `;
       
         document.getElementById("list").innerHTML= cardsprint;
-
-         
-        
-      
-      
     </script>
 </body>
 </html>
