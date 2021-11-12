@@ -12,7 +12,7 @@
     <!-- 회원가입 CSS -->
     <link rel="stylesheet" href="../static/css/signup.css" type="text/css">
     <!-- /회원가입 CSS -->
-
+    <!-- 게시글카드 css --> <link rel="stylesheet" href="../static/css/boardlist.css" type="text/css">
 
 </head>
 
@@ -115,7 +115,9 @@
     </section>
     
     <!-- description -->
-    <section class="section-a" id="getBoardForm">        
+    <section class="section-a" id="getBoardForm">      
+    <div id="withLeft">
+        
         <!-- 초기 페이지 -->
         <div class="boardContainer0" id="boardContainer0"></div>
         <!-- 새 글쓰기 전용 -->
@@ -124,13 +126,17 @@
         <div class="boardContainer2" id="boardContainer2"></div> 
         <!-- 읽기 전용 -->
         <div class="boardContainer3" id="boardContainer3"></div>
+        
+    </div>
+    <div id="withRight">
         <div class="btn-group">
-        <button type="button" class="newTxtBtn">글쓰기</button>
-        <button type="button" class="registerTxtBtn">등록</button>
-        <button type="button" class="boardListBtn">목록</button>
-        <button type="button" class="firstPageBtn">초기화면</button>
+            <button type="button" class="newTxtBtn">글쓰기</button>
+            <button type="button" class="registerTxtBtn">등록</button>
+            <button type="button" class="boardListBtn">목록</button>
+            <button type="button" class="firstPageBtn">초기화면</button>
         </div>
-
+    </div>
+        
     <script>
         // 저장 배열 (DB역할)
         var newTxt = document.querySelector('.newTxtBtn'); // 좌표 => 새 글 작성 버튼
@@ -138,32 +144,58 @@
         var boardList = document.querySelector('.boardListBtn'); // 좌표 => 목록 버튼
         var firstPage = document.querySelector('.firstPageBtn'); // 좌표 => 초기페이지 버튼
 
-        var titleDB = [];
+        var titleDB = []; titleDB=[1,2,3,4,5,6,7,8,9];
         var contentDB = [];
         var writerDB = [];
         var listDB = [];
-
+        var img=[];
         var signInisOn = localStorage.getItem("isOn"); // signup.js 에서 가져온 로그인 상태 담는 isOn 변수.
 
+        /*----------------------- 가로 카드 애니메이션 -------------------------------*/
+        for(i=0; i<titleDB.length; i++){
+             img.push('https://picsum.photos/300/120');
+         }
+        let cardsprint = "";
+         
+         for(i=0;i<titleDB.length;i++){
+            cardsprint += 
+            `<style>a:link,a:hover,a:visited,a:active{text-decoration: none; color:black;}</style>
+            <a href="#"><div class="cardframe">
+            <img src="https://picsum.photos/300/120"><div class="title" style="padding:10px;">`
+            //배열에 title 값
+            +titleDB[i]+`</div>
+                <div class="contents" style="padding:20px;">`
+          //배열에 내용값      
+            +contentDB[i]+`
+             </div>
+        </div>
+        </a>
+    `; }//end of for idx.length
+         
+     
+            document.getElementById("withRight").innerHTML= cardsprint;
+        /*----------------------- 가로 카드 애니메이션(종료) -----------------------*/
+        
+        
         // 초기페이지
         firstPage.addEventListener('click', function () {
             console.log("초기화면버튼 클릭");
-            const weareone =
-            `
-            <style> #boardBox {position:relative; top: -80px; float:right;} </style>
-            <div id="boardBox">
-            </div>
-            <div class="container2">
-                <h1>함께라면,</h1>
-                <p>여러분 모두 개발자가</p>
-                <p>될 수 있습니다</p>
-                <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
-                <p><a href="#" class="btn">클릭 하기!</a></p>
-            </div>
-            <div class="container2-img">
-                <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
-            </div>`;
-            document.getElementById("boardContainer0").innerHTML = weareone;
+            // const weareone =  //firstview와 중복사항 --제거권고
+            // `
+            // <style> #boardBox {position:relative; top: -80px; float:right;} </style>
+            // <div id="boardBox">
+            // </div>
+            // <div class="container2">
+            //     <h1>함께라면,</h1>
+            //     <p>여러분 모두 개발자가</p>
+            //     <p>될 수 있습니다</p>
+            //     <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
+            //     <p><a href="#" class="btn">클릭 하기!</a></p>
+            // </div>
+            // <div class="container2-img">
+            //     <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
+            // </div>`;
+            document.getElementById("boardContainer0").innerHTML = firstView;
             document.getElementById("boardContainer0").style.display = "block";
             document.getElementById("boardContainer1").style.display = "none";
             document.getElementById("boardContainer2").style.display = "none";
@@ -178,22 +210,22 @@
             if(signInisOn == "false")
             {
                 console.log("로그아웃 버튼 클릭시 게시판 초기화");
-                const weareone =
-                `
-                <style> #boardBox {position:relative; top: -80px; float:right;} </style>
-                <div id="boardBox">
-                </div>
-                <div class="container2">
-                    <h1>함께라면,</h1>
-                    <p>여러분 모두 개발자가</p>
-                    <p>될 수 있습니다</p>
-                    <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
-                    <p><a href="#" class="btn">클릭 하기!</a></p>
-                </div>
-                <div class="container2-img">
-                    <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
-                </div>`;
-                document.getElementById("boardContainer0").innerHTML = weareone;
+                // const weareone =  //const firstview 중복사항 --제거권고
+                // `
+                // <style> #boardBox {position:relative; top: -80px; float:right;} </style>
+                // <div id="boardBox">
+                // </div>
+                // <div class="container2">
+                //     <h1>함께라면,</h1>
+                //     <p>여러분 모두 개발자가</p>
+                //     <p>될 수 있습니다</p>
+                //     <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
+                //     <p><a href="#" class="btn">클릭 하기!</a></p>
+                // </div>
+                // <div class="container2-img">
+                //     <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
+                // </div>`;
+                document.getElementById("boardContainer0").innerHTML = firstView;
                 document.getElementById("boardContainer0").style.display = "block";
                 document.getElementById("boardContainer1").style.display = "none";
                 document.getElementById("boardContainer2").style.display = "none";
@@ -278,38 +310,20 @@
                 document.getElementById("tableBody").innerHTML = listDB; 
             } // end of for
             const listPage =
-                    `<div id="boardList"">
-                        <table id="table">
-                            <thead>
-                                <caption>게시판</caption>
-                                <tr>
-                                    <th scope="col">No.</th>
-                                    <th scope="col" class=titleAtList>제목</th>
-                                    <th scope="col">작성자</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                            </tbody>
-                        </table>
-
-                        <form>
-                            <fieldset">
-                                <legend>검색</legend>
-                                <label for="searchBox"></label>
-                                <label for="searchBtn"></label>
-                                <input type="text" id="searchBox" placeholder="검색어를 입력해주세요.">
-                                <input type="button" id="searchBtn" value="검색">
-                            </fieldset>
-                        </form>
-
-                        <div id="pageMv">
-                        <legend>페이지 이동</legend>
-                            <a href="#">Prev</a>
-                            <a href="#">1</a>
-                            ...
-                            <a href="#">10</a>
-                            <a href="#">Next</a>
-                        </div>
+                    `<div id="boardBox"">
+                    <div id="withLeft">
+                    <div class="container2">
+                        <h1>함께라면,</h1>
+                        <p>여러분 모두 개발자가</p>
+                        <p>될 수 있습니다</p>
+                        <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
+                        <p><a href="#" class="btn">클릭 하기!</a></p>
+                    </div>
+                    <div class="container2-img">
+                        <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
+                    </div>
+                </div>
+                
                     </div>`;
             document.getElementById("boardContainer2").innerHTML = listPage;
         }); // end of func
@@ -326,56 +340,43 @@
             document.getElementById("boardContainer3").style.display = "block";
         } // end of func
 
-        const listPage =
-            `<div id="boardList"">
-                <table id="table">
-                    <thead>
-                        <caption>게시판</caption>
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col" class=titleAtList>제목</th>
-                            <th scope="col">작성자</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                    </tbody>
-                </table>
-
-                <form>
-                    <fieldset">
-                        <legend>검색</legend>
-                        <label for="searchBox"></label>
-                        <label for="searchBtn"></label>
-                        <input type="text" id="searchBox" placeholder="검색어를 입력해주세요.">
-                        <input type="button" id="searchBtn" value="검색">
-                    </fieldset>
-                </form>
-
-                <div id="pageMv">
-                <legend>페이지 이동</legend>
-                    <a href="#">Prev</a>
-                    <a href="#">1</a>
-                    ...
-                    <a href="#">10</a>
-                    <a href="#">Next</a>
-                </div>
-            </div>`;
+        // const listPage = //안쓰는거 주석처리해보고
+        //     `<div id="boardList"">
+        //        <div id="boardBox"></div>
+        // <div id="withLeft">
+        //     <div class="container2">
+        //         <h1>함께라면,</h1>
+        //         <p>여러분 모두 개발자가</p>
+        //         <p>될 수 있습니다</p>
+        //         <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
+        //         <p><a href="#" class="btn">클릭 하기!</a></p>
+        //     </div>
+        //     <div class="container2-img">
+        //         <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
+        //     </div>
+        // </div>
+        // <div id="withRight"></div>  
+        //        `;
 
             const firstView =
             `
-            <style> #boardBox {position:relative; top: -80px; float:right;} </style>
-            <div id="boardBox">
+            <style> #boardBox {position:relative; top: -80px; float:right;
+                display:flex;}   
+            </style>
+            <div id="withLeft">
+                <div class="container2">
+                    <h1>함께라면,</h1>
+                    <p>여러분 모두 개발자가</p>
+                    <p>될 수 있습니다</p>
+                    <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
+                    <p><a href="#" class="btn">클릭 하기!</a></p>
+                </div>
+                <div class="container2-img">
+                    <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
+                </div>
             </div>
-            <div class="container2">
-                <h1>함께라면,</h1>
-                <p>여러분 모두 개발자가</p>
-                <p>될 수 있습니다</p>
-                <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
-                <p><a href="#" class="btn">클릭 하기!</a></p>
-            </div>
-            <div class="container2-img">
-                <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
-            </div>`;
+            
+            `;
 
             document.getElementById("boardContainer0").innerHTML = firstView;
             document.getElementById("boardContainer0").style.display = "block";

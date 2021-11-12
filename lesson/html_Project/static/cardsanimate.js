@@ -1,24 +1,26 @@
   //적용될 태그 id=withRight----
 
-<div id="getBoardForm">
-<div id="boardBox"></div>
-        <div id="withLeft">
-            <div class="container2">
-                <h1>함께라면,</h1>
-                <p>여러분 모두 개발자가</p>
-                <p>될 수 있습니다</p>
-                <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
-                <p><a href="#" class="btn">클릭 하기!</a></p>
-            </div>
-            <div class="container2-img">
-                <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
-            </div>
-        </div>
+// <div id="getBoardForm">
+// <div id="boardBox"></div>
+//         <div id="withLeft">
+//             <div class="container2">
+//                 <h1>함께라면,</h1>
+//                 <p>여러분 모두 개발자가</p>
+//                 <p>될 수 있습니다</p>
+//                 <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
+//                 <p><a href="#" class="btn">클릭 하기!</a></p>
+//             </div>
+//             <div class="container2-img">
+//                 <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
+//             </div>
+//         </div>
         
-        <div id="withRight"></div>
+//         <div id="withRight"></div>
           
-</div>
+// </div>
 
+
+//document.write("<div id='getBoardForm'></div>");
          //배열 임의값 생성
          let idx=[], title=[], content=[], img=[]; 
          idx.push(1,2,3,4,5,6,7,8,9,10,11,12), title.push(1,2,3,4,5,6,7,8,9,10,11,12), content.push(1,2,3,4,5,6,7,8,9,10,11,12);

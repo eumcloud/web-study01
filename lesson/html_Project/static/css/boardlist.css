@@ -1,0 +1,85 @@
+#withRight{
+    border: ; display:flex;
+    overflow:hidden; padding: 10px; 
+    height:70%;
+    overflow:hidden;
+    margin-left:250px;
+}
+ #getBoardForm{
+  display:flex;
+   width:100%;
+  
+}
+#withLeft{}
+#withLeft, #withRight{
+  width:100%;
+  height:80%;
+  margin: 5px;
+  border:;
+  z-index:0;
+  overflow:hidden;
+}.cardframe{
+  margin:35px; margin-top:25%;
+  border-radius:10px;
+  height:80%;
+  background-color:lightgray;
+  z-index:-1;
+   width:320px;
+   animation: slide 8s infinite;
+   overflow:hidden;
+   z-index:-1;
+   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+.cardframe img{
+  border-top-right-radius:10px;
+  border-top-left-radius:10px;  
+  height:30%; width:100%;
+ 
+}
+.title, .content{
+  padding:15px;
+}.title{text-align:center; font-weight:bold;}
+@keyframes slide{
+  0%{margin-left:0;}
+  10%{margin-left:0;opacity: 0.6;}
+  25%{margin-left:-100%; opacity: 0.8;}
+  35%{margin-left:-100%;}
+  50%{margin-left:-200%; }
+  60%{margin-left:-200%;}
+  75%{margin-left:-300%;}
+  85%{margin-left:-300%;}
+  100%{margin-left:0;}
+}
+
+
+
+
+/* #getBoardForm{display:flex;} */
+              /*
+              .cardframe{ 
+                margin: 15px; 
+                border:; 
+                width:300px; height:440px;
+                border-radius: 10px;
+                box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+                animation:slide 8s infinite; 
+                width:calc(100 * 4);
+                //width:calc(300px * `+idx.length+`);//이 값이 없어지면 카드가 다뜸.
+                //problem - 카드가 점점 겹친다. 왜겹치지? --- 아래 px로맞춰놨더니 안됨. 결국 이동은 카드가 움직이는게 아니라 카드영역자체를 움직여 보이는것.
+                }
+
+              .cardframe img{
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                }.title{text-align:center; font-weight:bold;}
+                @keyframes slide {
+                  0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+                  10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+                  25% {margin-left:-100%; opacity:0.5} /* 25 ~ 35 : 정지 */
+                  35% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
+                  50% {margin-left:-200%;}
+                  60% {margin-left:-200%;}
+                  75% {margin-left:-300%;}
+                  85% {margin-left:-300%;}
+                  100%{left:-130%;}
+                } */
