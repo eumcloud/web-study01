@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/page1.css" type="text/css">
+    <script src="https://kit.fontawesome.com/8a00186dd1.js" crossorigin="anonymous"></script>
+
+    <!-- 회원가입 CSS -->
+    <link rel="stylesheet" href="../static/css/signup.css" type="text/css">
+    <!-- /회원가입 CSS -->
+
+
+</head>
+
+<body>
+    <div class="bodyTest"></div>
+    <!-- Menu-bar -->
+    <div class="header-overlay">
+        <div class="navbar_logo">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <a href="#">생각공유</a>
+        </div>
+        <div class="navbar_menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="navbar_icons">          
+                <p>
+                  <li><a href="#" onclick="logIn()" id="logInText">signin</a></li>
+                  <li><a href="#" onclick="signUp(); logOutfirstPage();" id="signUpText">signup</a></li> 
+                  <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                </p>          
+              </ul>   
+        </div>
+
+        <!-- 반응형 햄버거 -->
+        <a href="#" class="navbar_toogleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+    </div>
+
+    <!-- Side Nav -->
+    <nav class="sideNavWrapper">
+        <ul class="sideNav">
+        <li class="sideNav-item" title="홈">
+            <a id="sideNavHome" href="#1"></a>
+        </li>
+        <li class="sideNav-item" title="소개">
+            <a id="sideNavAbout" href="#2"></a>
+        </li>
+        <li class="sideNav-item" title="뉴스">
+            <a id="sideNavNews" href="#3"></a>
+        </li>
+        <li class="sideNav-item" title="포럼">
+            <a id="sideNavForum" href="#4"></a>
+        </li>
+        </ul>
+    </nav>
+    
+    <nav class="bottomNavWrapper">
+        <ul class="bottomNav" style="list-style: none; ">
+        <li class="bottomNav-item" title="홈">
+            <a id="bottomNavHome" href="#1"></a>
+        </li>
+        <li class="bottomNav-item" title="소개">
+            <a id="bottomNavAbout" href="#2"></a>
+        </li>
+        <li class="bottomNav-item" title="뉴스">
+            <a id="bottomNavNews" href="#3"></a>
+        </li>
+        <li class="bottomNav-item" title="포럼">
+            <a id="bottomNavForum" href="#4"></a>
+        </li>
+        </ul>
+    </nav>
+    <!-- scroll-icon -->
+    <div class="scroll-downs">
+        <div class="mousey">
+            <div class="scroller">
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+    <!-- Main -->
+    <section class="section">        
+    <section class="vid-header container">
+        
+            <div class="fullscreen-vid-wrap" id="1">
+                <video src="../static/img/vid.mp4" autoplay muted loop></video>
+            </div>            
+
+            <div class="header-content">
+                <h1>내용은 미정입니다<br>
+                    동영상은 샘플로 가져 온겁니다
+                </h1>
+                <p>여기는 아무말이나 쓰는 곳입니다. 아무 의미 없습니다.
+                    여기는 아무말이나 쓰는 곳입니다. 아무 의미 없습니다.
+                    여기는 아무말이나 쓰는 곳입니다. 아무 의미 없습니다.
+                </p>
+                <a href="#" class="btn">클릭 하기!</a>
+            </div>        
+    </section>
+    </section>
+    
+    <!-- description -->
+    <section class="section-a" id="getBoardForm">        
+        <!-- 초기 페이지 -->
+        <div class="boardContainer0" id="boardContainer0"></div>
+        <!-- 새 글쓰기 전용 -->
+        <div class="boardContainer1" id="boardContainer1"></div>
+        <!-- list 전용 -->
+        <div class="boardContainer2" id="boardContainer2"></div> 
+        <!-- 읽기 전용 -->
+        <div class="boardContainer3" id="boardContainer3"></div>
+        <div class="btn-group">
+        <button type="button" class="newTxtBtn">글쓰기</button>
+        <button type="button" class="registerTxtBtn">등록</button>
+        <button type="button" class="boardListBtn">목록</button>
+        <button type="button" class="firstPageBtn">초기화면</button>
+        </div>
+
+    <script>
+        // 저장 배열 (DB역할)
+        var newTxt = document.querySelector('.newTxtBtn'); // 좌표 => 새 글 작성 버튼
+        var registerTxt = document.querySelector('.registerTxtBtn'); // 좌표 => 등록 버튼
+        var boardList = document.querySelector('.boardListBtn'); // 좌표 => 목록 버튼
+        var firstPage = document.querySelector('.firstPageBtn'); // 좌표 => 초기페이지 버튼
+
+        var titleDB = [];
+        var contentDB = [];
+        var writerDB = [];
+        var listDB = [];
+
+        var signInisOn = localStorage.getItem("isOn"); // signup.js 에서 가져온 로그인 상태 담는 isOn 변수.
+
+        // 초기페이지
+        firstPage.addEventListener('click', function () {
+            console.log("초기화면버튼 클릭");
+            const weareone =
+            `
+            <style> #boardBox {position:relative; top: -80px; float:right;} </style>
+            <div id="boardBox">
+            </div>
+            <div class="container2">
+                <h1>함께라면,</h1>
+                <p>여러분 모두 개발자가</p>
+                <p>될 수 있습니다</p>
+                <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
+                <p><a href="#" class="btn">클릭 하기!</a></p>
+            </div>
+            <div class="container2-img">
+                <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
+            </div>`;
+            document.getElementById("boardContainer0").innerHTML = weareone;
+            document.getElementById("boardContainer0").style.display = "block";
+            document.getElementById("boardContainer1").style.display = "none";
+            document.getElementById("boardContainer2").style.display = "none";
+            document.getElementById("boardContainer3").style.display = "none";
+        })
+
+        function logOutfirstPage()
+        {
+            signInisOn = localStorage.getItem("isOn");
+            console.log("로그아웃 시 게시판 초기화 signInisOn = " + signInisOn);
+
+            if(signInisOn == "false")
+            {
+                console.log("로그아웃 버튼 클릭시 게시판 초기화");
+                const weareone =
+                `
+                <style> #boardBox {position:relative; top: -80px; float:right;} </style>
+                <div id="boardBox">
+                </div>
+                <div class="container2">
+                    <h1>함께라면,</h1>
+                    <p>여러분 모두 개발자가</p>
+                    <p>될 수 있습니다</p>
+                    <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
+                    <p><a href="#" class="btn">클릭 하기!</a></p>
+                </div>
+                <div class="container2-img">
+                    <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
+                </div>`;
+                document.getElementById("boardContainer0").innerHTML = weareone;
+                document.getElementById("boardContainer0").style.display = "block";
+                document.getElementById("boardContainer1").style.display = "none";
+                document.getElementById("boardContainer2").style.display = "none";
+                document.getElementById("boardContainer3").style.display = "none";
+            }
+            
+        }
+
+        // 새 글 작성
+        newTxt.addEventListener('click', function () {
+            
+            signInisOn = localStorage.getItem("isOn");
+            console.log("signInisOn = " + signInisOn);
+
+            if(signInisOn == "true")
+            {
+                //로그인 한 상태.
+                const writeForm = 
+                `
+                <form>
+                    <div class="form-group">
+                        <label for="title">제목</label>
+                        <input type="text" class="form-control" id="title" placeholder="제목 입력(4-100)" name="title"
+                            maxlength="100" required="required" pattern=".{4,100}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">내용</label>
+                        <textarea class="form-control" rows="10" id="content" name="content" placeholder="내용 작성"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="writer">작성자</label>
+                        <input type="text" class="form-control" id="writer" placeholder="작성자(2자 이상)" name="writer"
+                        required="required" pattern=".{2,100}">
+                    </div>
+
+                </form>
+                `;
+                document.getElementById("boardContainer1").innerHTML = writeForm;
+                document.getElementById("boardContainer0").style.display = "none";
+                document.getElementById("boardContainer1").style.display = "block";
+                document.getElementById("boardContainer2").style.display = "none";
+                document.getElementById("boardContainer3").style.display = "none";
+            }
+            else
+            {
+                //로그아웃 한 상태.
+                console.log("로그인 한 유저가 없습니다.");
+            }
+
+            
+        });
+                        
+
+        // 글쓰기 form 부른 후 글 작성하고 '등록'
+        registerTxt.addEventListener('click', function () {
+            titleDB.push(title.value);
+            contentDB.push(content.value);
+            writerDB.push(writer.value);
+
+            console.log(titleDB);
+            console.log(contentDB);
+            console.log(writerDB);
+        });
+
+        // 리스트: 홈페이지상 No.의 숫자는 +1을 한 것이므로 DB에서 Idx불러오고 싶을 땐 단순 i 또는 No. -1로 봐야함
+        boardList.addEventListener('click', function () {
+            listDB = [];
+            document.getElementById("boardContainer0").style.display = "none";
+            document.getElementById("boardContainer1").style.display = "none";
+            document.getElementById("boardContainer2").style.display = "block";
+            document.getElementById("boardContainer3").style.display = "none";
+            for (var i = 0; i < titleDB.length; i++) {
+                // a = 게시판 list의 tbody부분
+                var a = `<tr>
+                            <td>`+ (i+1) + `</td>
+                            <td><a href="#" onclick="txtBackFunc1(`+ i +`)">`+ titleDB[i] + `</td>
+                            <td>`+ writerDB[i] + `</td>
+                        </tr>`;
+                listDB.push(a);
+                document.getElementById("tableBody").innerHTML = listDB; 
+            } // end of for
+            const listPage =
+                    `<div id="boardList"">
+                        <table id="table">
+                            <thead>
+                                <caption>게시판</caption>
+                                <tr>
+                                    <th scope="col">No.</th>
+                                    <th scope="col" class=titleAtList>제목</th>
+                                    <th scope="col">작성자</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
+
+                        <form>
+                            <fieldset">
+                                <legend>검색</legend>
+                                <label for="searchBox"></label>
+                                <label for="searchBtn"></label>
+                                <input type="text" id="searchBox" placeholder="검색어를 입력해주세요.">
+                                <input type="button" id="searchBtn" value="검색">
+                            </fieldset>
+                        </form>
+
+                        <div id="pageMv">
+                        <legend>페이지 이동</legend>
+                            <a href="#">Prev</a>
+                            <a href="#">1</a>
+                            ...
+                            <a href="#">10</a>
+                            <a href="#">Next</a>
+                        </div>
+                    </div>`;
+            document.getElementById("boardContainer2").innerHTML = listPage;
+        }); // end of func
+
+        function txtBackFunc1(x) {
+            var txtBack = `
+                <div class="getTitle">제목: `+ titleDB[x] +`</div>
+                <div class="getContent">내용: `+ contentDB[x] +`</div>
+                <div class="getWriter">작성자: `+ writerDB[x] +`</div>`;
+            document.getElementById("boardContainer3").innerHTML = txtBack;
+            document.getElementById("boardContainer0").style.display = "none";
+            document.getElementById("boardContainer1").style.display = "none";
+            document.getElementById("boardContainer2").style.display = "none";
+            document.getElementById("boardContainer3").style.display = "block";
+        } // end of func
+
+        const listPage =
+            `<div id="boardList"">
+                <table id="table">
+                    <thead>
+                        <caption>게시판</caption>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col" class=titleAtList>제목</th>
+                            <th scope="col">작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+
+                <form>
+                    <fieldset">
+                        <legend>검색</legend>
+                        <label for="searchBox"></label>
+                        <label for="searchBtn"></label>
+                        <input type="text" id="searchBox" placeholder="검색어를 입력해주세요.">
+                        <input type="button" id="searchBtn" value="검색">
+                    </fieldset>
+                </form>
+
+                <div id="pageMv">
+                <legend>페이지 이동</legend>
+                    <a href="#">Prev</a>
+                    <a href="#">1</a>
+                    ...
+                    <a href="#">10</a>
+                    <a href="#">Next</a>
+                </div>
+            </div>`;
+
+            const firstView =
+            `
+            <style> #boardBox {position:relative; top: -80px; float:right;} </style>
+            <div id="boardBox">
+            </div>
+            <div class="container2">
+                <h1>함께라면,</h1>
+                <p>여러분 모두 개발자가</p>
+                <p>될 수 있습니다</p>
+                <h2>KGA 멤버들과 소통을 통해 정보를 공유하세요</h2><br>
+                <p><a href="#" class="btn">클릭 하기!</a></p>
+            </div>
+            <div class="container2-img">
+                <img src="../static/img/communication.jpg" style="width: 50vw; height: 100%;" alt="communication">
+            </div>`;
+
+            document.getElementById("boardContainer0").innerHTML = firstView;
+            document.getElementById("boardContainer0").style.display = "block";
+            document.getElementById("boardContainer1").style.display = "none";
+            document.getElementById("boardContainer2").style.display = "none";
+            document.getElementById("boardContainer3").style.display = "none";
+    </script>
+    </section>
+
+    <section class="section">
+    <section class="section-b">         
+        <div class="container3" id="2">
+            <h1>비전공자도 가능합니다</h1>
+            <p>커리큘럼을 참고하세요!</p>
+            <h2>본인이 원하는 언어에 대해 깊게 알 수 있습니다</h2><br>
+            <p><a href="#" class="btn">클릭 하기!</a></p>
+        </div>
+        <div class="container3-img">
+            <img src="../static/img/share_1.jpg" style="width: 70%; height: 100%; padding-left: 25%;">
+        </div>       
+    </section>
+    </section>
+    
+    <section class="section">
+    <section class="section-c">        
+        <div class="container2" id="3">
+            <h1>Section C</h1>
+            <p>anything contents so you don need to care about this. anything contents so you don need to care about
+                this. anything contents so you don need to care about this. anything contents so you don need to
+                care
+                about this. anything contents so you don need to care about this. anything contents so you don need
+                to
+                care about this. </p>
+        </div>    
+    </section>
+    </section>
+    
+
+    <!-- Recommend -->
+    <section class="section">
+    <section class="recommend">        
+        <div class="rech1" id="4">
+            이런 코린이들에게 추천드립니다
+        </div>
+        <div class="recOutBox">
+            <div class="recInBox1">
+                <div class="rech3">추천하는 이유1</div>
+                <div class="rech5">commentcommentcomment</div>
+                <img class="reference" src="../static/img/reference.png" alt="임시이미지">
+            </div>
+        
+            <div class="recInBox2">
+                <div class="rech3">추천하는 이유212312312321</div>
+                <div class="rech5">commentment</div>
+                <img class="reference" src="../static/img/reference.png" alt="임시이미지">
+            </div>
+            <div class="recInBox2">
+                <div class="rech3">추천하는 이유3</div>
+                <div class="rech5">commentcommentcomm
+                </div>
+                <img class="reference" src="../static/img/reference.png" alt="임시이미지">
+            </div>
+        </div>       
+    </section>
+    </section>
+    
+    <!-- FAQs -->
+    <section class="section">
+    <section class="faqs">        
+        <h2 class="title">FAQs</h2>
+        <div class="faq">
+            <div class="question">
+                <h3>Q. 비전공자도 커리큘럼을 참고하면 도움되나요 ?</h3>
+
+                <!-- svg: 화살표 -->
+                <svg width="15" height='10' viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>
+                    description 이 곳은 내용을 채우는 곳입니다. 임시로 채워두기 위해 아무말이나 쓰겠습니다.
+                    description 이 곳은 내용을 채우는 곳입니다. 임시로 채워두기 위해 아무말이나 쓰겠습니다.
+                    description 이 곳은 내용을 채우는 곳입니다. 임시로 채워두기 위해 아무말이나 쓰겠습니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Q. KGA 수강생들만 커뮤니티 이용 가능한가요 ?</h3>
+
+                <svg width="15" height='10' viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>
+                    description 이 곳은 내용을 채우는 곳입니다. 임시로 채워두기 위해 아무말이나 쓰겠습니다.
+                    description 이 곳은 내용을 채우는 곳입니다. 임시로 채워두기 위해 아무말이나 쓰겠습니다.
+                    description 이 곳은 내용을 채우는 곳입니다. 임시로 채워두기 위해 아무말이나 쓰겠습니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Q. 어떤 정보를 공유할 수 있나요 ?</h3>
+
+                <svg width="15" height='10' viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>
+                    description 이 곳은 내용을 채우는 곳입니다. 임시로 채워두기 위해 아무말이나 쓰겠습니다.
+                    description 이 곳은 내용을 채우는 곳입니다. 임시로 채워두기 위해 아무말이나 쓰겠습니다.
+                    description 이 곳은 내용을 채우는 곳입니다. 임시로 채워두기 위해 아무말이나 쓰겠습니다.
+                </p>
+            </div>
+        </div>        
+    </section>
+</section>
+
+
+    <!-- 슬라이드 -->
+    <section class="section">
+    <section class="slideSec">        
+        <h1>나에게 필요한 정보를 더 알아보세요!</h1>
+        <ul class="slides">
+            <li><img src="../static/img/300.jpg" style="width: 300px; height: 300px;" alt=""></li>
+            <li><img src="../static/img/300.jpg" style="width: 300px; height: 300px;" alt=""></li>
+            <li><img src="../static/img/300.jpg" style="width: 300px; height: 300px;" alt=""></li>
+            <li><img src="../static/img/300.jpg" style="width: 300px; height: 300px;" alt=""></li>
+            <li><img src="../static/img/300.jpg" style="width: 300px; height: 300px;" alt=""></li>
+            <li><img src="../static/img/300.jpg" style="width: 300px; height: 300px;" alt=""></li>
+            <li><img src="../static/img/300.jpg" style="width: 300px; height: 300px;" alt=""></li>
+            <li><img src="../static/img/300.jpg" style="width: 300px; height: 300px;" alt=""></li>
+        </ul>
+
+        <div class="controls">
+            <span class="prev">prev</span>
+            <span class="next">next</span>
+        </div>    
+    </section>
+    </section>
+
+
+    <!-- signUp & signIn -->
+<div style="margin-top: 30px;"></div>
+<!-- <div id="userOn" class="userOn">USER ON</div>
+<div id="userOff" class="userOff">USER OFF</div> -->
+
+<!-- signUp -->
+<div id="signUpMainContainer"> <!-- 회원가입 전체 컨테이너 -->
+    <div class="logInContainer" id="signUpAnimBox"> <!-- 폼 박스를 포함한 회원가입 박스 -->
+    <button type="button"  class="exit_Btn" id="loginExit" onclick="containerExitBtn()"><img src="../static/img/cross.png" class="exit_Btn_img"></button>
+    <!-- <img src="../static/img/cross.png"> -->
+      <div class="formContainer"> <!-- 로그인 박스 내의 폼 박스 -->
+        <form name="signUpForm" action="" method=""> <!-- 회원가입 항목 폼 -->
+          <div class="formTitle">
+            <p>Sign Up</p>
+          </div>
+          <div style="height: 20px;"></div>
+          <div> <!-- 아이디 -->
+            <div> 
+              <a class="itemTextInform">ID</a>
+            </div>
+            <div>
+              <input type="text" class="formInput" id="signUpIDInput" name="name" placeholder="ID를 입력하세요">
+            </div>
+            <div>
+              <div id="errSignupID" class="errMessage">""</div>
+            </div>
+          </div> <!-- /아이디 -->
+
+          <div style="height: 13px;"></div>
+
+          <div>  <!-- 닉네임 -->
+            <div> 
+              <a class="itemTextInform">name</a>
+            </div>
+            <div>
+              <input type="text" class="formInput" id="signUpNameInput" name="nickname" placeholder="이름을 입력하세요">
+            </div>
+            <div>
+              <div id="errSignupNickName" class="errMessage">""</div>
+            </div>
+          </div> <!-- /닉네임 -->
+
+          <div style="height: 13px;"></div>
+
+          <div> <!-- password -->
+            <div> 
+              <a class="itemTextInform">Password</a>
+            </div>
+            <div>
+              <input type="password" class="formInput" id="signUpPWInput" name="password" placeholder="비밀번호를 입력하세요">
+            </div>
+            <div>
+              <div id="errSignupPW" class="errMessage">""</div>
+            </div>
+          </div> <!-- /password -->
+
+          <div style="height: 5px;"></div>
+
+           <!-- password 재확인 -->
+          <!-- <div>
+            <div>
+              <a class="itemTextInform">Confirm Password</a>
+            </div>
+            <div>
+              <input type="password" class="formInput" name="password" placeholder="비밀번호를 한번 더 입력하세요">
+            </div>
+          </div> -->
+          
+            <div> <!-- 확인버튼 -->
+              <button type="button" class="formSubmitBtn" id="myAcount_Close_Btn" onclick="completeUserCheck()">확인</button>
+            </div> <!-- /확인버튼 -->
+
+        </form>
+      </div>
+    </div>
+    <div class="blurBox"></div>
+</div>
+<!-- /signUp -->
+
+<!-- signIn -->
+<div id="loginMainContainer"> 
+    <div class="logInContainer" id="loginAnimBox">
+      <button type="button" class="exit_Btn" id="loginExit" onclick="containerExitBtn()"><img src="../static/img/cross.png" class="exit_Btn_img"></button>
+      <div class="formContainer">
+        
+        <form name="logInForm" action="" method=""> 
+          
+          <div class="formTitle">
+            <p>Sign In</p>
+          </div>
+          <div style="height: 55px;"></div>
+          <div> <!-- ID -->
+            <div>
+              <a class="itemTextInform">ID</a>
+            </div>
+            <div>
+              <input type="text" class="formInput" name="name" placeholder="ID를 입력하세요">
+            </div>
+            <div>
+              <div id="errSigninID" class="errMessage">""</div>
+            </div>
+          </div> <!-- /ID -->
+
+          <div style="height: 15px;"></div>
+
+          <div> <!-- password -->
+            <div>
+              <a class="itemTextInform">Password</a>
+            </div>
+            <div>
+              <input type="password" class="formInput" name="password" placeholder="비밀번호를 입력하세요">
+            </div>
+            <div>
+              <div id="errSigninPW" class="errMessage">""</div>
+            </div>
+          </div> <!-- /password -->
+
+          <div style="height: 20px;"></div>
+
+            <div>
+              <button type="button" class="formSubmitBtn" id="myAcount_Close_Btn" onclick="logInSubmit()">확인</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    <div class="blurBox"></div>
+</div>
+<!-- /signIn -->
+<!-- /signUp & signIn -->
+
+    
+    <script src="../static/js/page1.js"></script>
+    <script type="text/javascript" src="../static/js/signup.js"></script>
+</body>
+
+<script>
+
+</script>
+
+</html>

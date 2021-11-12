@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 변수 = 'string'+ 변수 +'string' => form 구축 -->
+    <!-- 각 항목마다 배열을 넣어주고 index번호로 저장 -->
+    <div id="boardContainer"></div>
+    <button type="button" class="newTxtBtn">글쓰기</button>
+    <button type="button" class="registerTxtBtn">등록</button>
+    <button type="button" class="boardListBtn">목록</button>
+
+    <script>
+        // 저장 배열 (DB역할)
+        var newTxt = document.querySelector('.newTxtBtn'); // 좌표 => 새 글 작성 버튼
+        var registerTxt = document.querySelector('.registerTxtBtn'); // 좌표 => 등록 버튼
+        var boardList = document.querySelector('.boardListBtn'); // 좌표 => 목록 버튼
+
+        var titleDB = [];
+        var contentDB = [];
+        var writerDB = [];
+        var listDB = [];
+
+        // 새 글 작성
+        newTxt.addEventListener('click', function () {
+            const writeForm = `
+            <form>
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" class="form-control" id="title" placeholder="제목 입력(4-100)" name="title"
+                        maxlength="100" required="required" pattern=".{4,100}">
+                </div>
+
+                <div class="form-group">
+                    <label for="content">내용</label>
+                    <textarea class="form-control" rows="10" id="content" name="content" placeholder="내용 작성"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="writer">작성자</label>
+                    <input type="text" class="form-control" id="writer" placeholder="작성자(2자 이상)" name="writer"
+                    required="required" pattern=".{2,100}">
+                </div>
+                
+                <button type="submit" class="btn-group">등록</button>
+                <button type="submit" formaction="modify" formmethod="put" class="btn-group">수정</button>
+                <button type="submit" formaction="remove" formmethod="delete" class="btn-group">삭제</button>
+                <button type="submit" formaction="list" formmethod="get" class="btn-group">목록</button>
+            </form>
+            `;
+            document.getElementById("boardContainer").innerHTML = writeForm;
+        });
+
+        // 글쓰기 form 부른 후 글 작성하고 '등록'
+        registerTxt.addEventListener('click', function () {
+            titleDB.push(title.value);
+            contentDB.push(content.value);
+            writerDB.push(writer.value);
+
+            console.log(titleDB);
+            console.log(contentDB);
+            console.log(writerDB);
+        });
+
+        // 리스트: 홈페이지상 No.의 숫자는 +1을 한 것이므로 DB에서 Idx불러오고 싶을 땐 단순 i 또는 No. -1로 봐야함
+        boardList.addEventListener('click', function () {
+
+            for (var i = 0; i < titleDB.length; i++) {
+                var a = `<tr class='tableList` + i + `'>
+                        <td>`+ (i+1) + `</td>
+                        <td>`+ titleDB[i] + `</td>
+                        <td>`+ writer[i] + `</td>
+                    </tr>`;
+                listDB.push(a);
+            }
+
+            const listPage =
+            `<div id="boardList">
+                <table id="table">
+                    <thead>
+                        <caption>게시판</caption>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">제목</th>
+                            <th scope="col">작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ` + listDB + `
+                    </tbody>
+                </table>
+
+                <form>
+                    <fieldset>
+                        <legend>검색</legend>
+                        <label for="searchBox"></label>
+                        <label for="searchBtn"></label>
+                        <input type="text" id="searchBox" placeholder="검색어를 입력해주세요.">
+                        <input type="button" id="searchBtn" value="검색">
+                    </fieldset>
+                </form>
+
+                <div id="pageMv">
+                <legend>페이지 이동</legend>
+                    <a href="#">Prev</a>
+                    <a href="#">1</a>
+                    ...
+                    <a href="#">10</a>
+                    <a href="#">Next</a>
+                </div>
+            </div>`;
+                console.log(listDB);
+                document.getElementById("boardContainer").innerHTML = listPage;
+        });
+
+    </script>
+</body>
+
+</html>

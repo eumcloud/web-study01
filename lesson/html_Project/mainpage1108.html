@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./static/css/mainpage1108.css" type="text/css">
+
+    <!-- 회원가입 CSS -->
+    <link rel="stylesheet" href="./static/css/signup.css" type="text/css">
+    <!-- /회원가입 CSS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&family=Nanum+Gothic+Coding:wght@400;700&family=Nanum+Pen+Script&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/8a00186dd1.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <a href="#">생각공유</a>                              
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="#1">HOME</a></li>
+            <li><a href="#2">ABOUT</a></li>
+            <li><a href="#3">NEWS</a></li>
+            <li><a href="#4">FORUM</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>       
+        
+        <ul class="navbar_icons">          
+          <p>
+            <li><a href="#" onclick="logIn()" id="logInText">signin</a></li>
+            <li><a href="#" onclick="signUp()" id="signUpText">signup</a></li>        
+          </p>                    
+          <p>
+            <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+          </p>          
+        </ul>        
+
+        <a href="#" class="navbar_toogleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+    </nav>
+    </header>
+
+  <!-- Side Nav -->
+  <nav class="sideNavWrapper">
+    <ul class="sideNav">
+      <li class="sideNav-item" title="홈">
+          <a id="sideNavHome" href="#1"></a>
+      </li>
+      <li class="sideNav-item" title="소개">
+          <a id="sideNavAbout" href="#2"></a>
+      </li>
+      <li class="sideNav-item" title="뉴스">
+          <a id="sideNavNews" href="#3"></a>
+      </li>
+      <li class="sideNav-item" title="포럼">
+          <a id="sideNavForum" href="#4"></a>
+      </li>
+    </ul>
+  </nav>
+  
+  <nav class="bottomNavWrapper">
+    <ul class="bottomNav" style="list-style: none; ">
+      <li class="bottomNav-item" title="홈">
+          <a id="bottomNavHome" href="#1"></a>
+      </li>
+      <li class="bottomNav-item" title="소개">
+          <a id="bottomNavAbout" href="#2"></a>
+      </li>
+      <li class="bottomNav-item" title="뉴스">
+          <a id="bottomNavNews" href="#3"></a>
+      </li>
+      <li class="bottomNav-item" title="포럼">
+          <a id="bottomNavForum" href="#4"></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 화면 -->
+
+    <div class="full-screen background-primary" id="1">
+        <div class="center">
+          <div class="center__inner">
+            <!-- <img id="main_text_image" src="./img/3.jpg" alt="" /> -->
+            <h1 class="fade-in" id="font1" style="color:#ffffff;">함께 배움을 나눠요!!</h1>
+            <h1 class="fade-in" id="font3" style="color:navy;">홈페이지를 소개합니다</h1><a href="#2">
+              <div class="fa fa-caret-down fa-3x fade-in bounce">                
+              </div></a>
+          </div>
+        </div>
+      </div>
+      <div class="full-screen background-secondary" id="2">
+        <div class="center">
+          <div class="center__inner" id="fade-in-container">
+            <div class="box-container">
+              
+              <div class="box"> 
+                <h2 class="hidden"><img src="./static/img/3.jpg"></h2>
+              </div>
+
+              <div class="box">
+                <br>교육 정보와 자료를 공유하는 곳입니다.
+                <br>블록체인 기반 핀테크 및 응용 SW개발자 양성과정 강의을 들으며 생긴 궁금증들을  
+                <br>서로 공유하고 공부하며 알게된 새로운 정보를 나누고자 만든  곳입니다. 자유롭게 이용하세요!!                
+              </div>
+
+              <div class="box"> 
+                
+              </div>
+
+              <div class="box">                
+              </div>
+
+              
+
+            </div>
+            <div class="box-container">
+              
+              <div class="box"> 
+                
+              </div>
+
+              <div class="box">               
+              </div>
+
+              <div class="box"> 
+                
+              </div>
+              
+              <div class="box">
+                
+              </div>
+
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="full-screen background-third" id="3">
+        <div class="center">
+          <div class="center__inner">
+            <h2 class="hidden">text3</h2>            
+          </div>
+        </div>
+      </div>
+      <div class="full-screen background-fourth" id="4">
+        <div class="center">
+          <div class="center__inner">
+            <a href="#" target="new window"> 
+            <h2 class="hidden">처음으로 돌아가기</h2></a>
+          </div>
+        </div>
+      </div>
+
+
+<!-- signUp & signIn -->
+<div style="margin-top: 30px;"></div>
+<!-- <div id="userOn" class="userOn">USER ON</div>
+<div id="userOff" class="userOff">USER OFF</div> -->
+
+<!-- signUp -->
+<div id="signUpMainContainer"> <!-- 회원가입 전체 컨테이너 -->
+    <div class="logInContainer" id="signUpAnimBox"> <!-- 폼 박스를 포함한 회원가입 박스 -->
+    <button type="button"  class="exit_Btn" id="loginExit" onclick="containerExitBtn()"><img src="./static/img/cross.png" class="exit_Btn_img"></button>
+      <div class="formContainer"> <!-- 로그인 박스 내의 폼 박스 -->
+        <form name="signUpForm" action="" method=""> <!-- 회원가입 항목 폼 -->
+          <div class="formTitle">
+            <p>Sign Up</p>
+          </div>
+
+          <div> <!-- 아이디 -->
+            <div> 
+              <a class="itemTextInform">ID</a>
+            </div>
+            <div>
+              <input type="text" class="formInput" id="signUpIDInput" name="name" placeholder="ID를 입력하세요">
+            </div>
+            <div>
+              <div id="errSignupID" class="errMessage">""</div>
+            </div>
+          </div> <!-- /아이디 -->
+
+          <div style="height: 15px;"></div>
+
+          <div>  <!-- 닉네임 -->
+            <div> 
+              <a class="itemTextInform">name</a>
+            </div>
+            <div>
+              <input type="text" class="formInput" id="signUpNameInput" name="nickname" placeholder="이름을 입력하세요">
+            </div>
+            <div>
+              <div id="errSignupNickName" class="errMessage">""</div>
+            </div>
+          </div> <!-- /닉네임 -->
+
+          <div style="height: 15px;"></div>
+
+          <div> <!-- password -->
+            <div> 
+              <a class="itemTextInform">Password</a>
+            </div>
+            <div>
+              <input type="password" class="formInput" id="signUpPWInput" name="password" placeholder="비밀번호를 입력하세요">
+            </div>
+            <div>
+              <div id="errSignupPW" class="errMessage">""</div>
+            </div>
+          </div> <!-- /password -->
+
+          <div style="height: 15px;"></div>
+
+           <!-- password 재확인 -->
+          <!-- <div>
+            <div>
+              <a class="itemTextInform">Confirm Password</a>
+            </div>
+            <div>
+              <input type="password" class="formInput" name="password" placeholder="비밀번호를 한번 더 입력하세요">
+            </div>
+          </div> -->
+
+            <div> <!-- 확인버튼 -->
+              <button type="button" class="formSubmitBtn" id="myAcount_Close_Btn" onclick="completeUserCheck()">확인</button>
+            </div> <!-- /확인버튼 -->
+
+        </form>
+      </div>
+    </div>
+    <div class="blurBox"></div>
+</div>
+<!-- /signUp -->
+
+<!-- signIn -->
+<div id="loginMainContainer"> 
+    <div class="logInContainer" id="loginAnimBox">
+      <button type="button" class="exit_Btn" id="loginExit" onclick="containerExitBtn()"><img src="./static/img/cross.png"></button>
+      <div class="formContainer">
+        
+        <form name="logInForm" action="" method=""> 
+          
+          <div class="formTitle">
+            <p>Sign In</p>
+          </div>
+
+          <div> <!-- ID -->
+            <div>
+              <a class="itemTextInform">ID</a>
+            </div>
+            <div>
+              <input type="text" class="formInput" name="name" placeholder="ID를 입력하세요">
+            </div>
+            <div>
+              <div id="errSigninID" class="errMessage">""</div>
+            </div>
+          </div> <!-- /ID -->
+
+          <div style="height: 15px;"></div>
+
+          <div> <!-- password -->
+            <div>
+              <a class="itemTextInform">Password</a>
+            </div>
+            <div>
+              <input type="password" class="formInput" name="password" placeholder="비밀번호를 입력하세요">
+            </div>
+            <div>
+              <div id="errSigninPW" class="errMessage">""</div>
+            </div>
+          </div> <!-- /password -->
+
+          <div style="height: 15px;"></div>
+
+            <div>
+              <button type="button" class="formSubmitBtn" id="myAcount_Close_Btn" onclick="logInSubmit()">확인</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    <div class="blurBox"></div>
+</div>
+<!-- /signIn -->
+<!-- /signUp & signIn -->
+
+
+</body>
+<script src="./static/js/mainpage1108.js" defer></script>
+<script type="text/javascript" src="./static/js/signup.js"></script>
+<footer>
+  <p>경일게임아카데미 블록체인 기반 핀테크 및 응용 SW개발자 양성과정 4기 안성준 정종찬 이충현 권원현 정태수</p>
+</footer>
+
+</html>

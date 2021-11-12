@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 로그인테스트중 -->
+    <link rel="stylesheet" href="./signup.css" type="text/css">
+    <!-- 로그인테스트중 -->
+</head>
+<body>
+    <!-- <button onclick="signUp()" id="myAcount_Open_Btn">회원가입</button> -->
+    <button onclick="signUp()" class="open_Btn" id="myAcount_Open_Btn">회원가입</button>
+    <button onclick="logIn()" class="open_Btn" id="login_Open_Btn">로그인</button>
+    <button onclick="logOut()" class="open_Btn" id="logout_Open_Btn">로그아웃</button>
+    
+    <div style="margin-top: 30px;"></div>
+
+    <div id="userOn" class="userOn">USER ON</div>
+    <div id="userOff" class="userOff">USER OFF</div>
+
+    <div id="signUpMainContainer"> <!-- 회원가입 전체 컨테이너 -->
+        <div class="logInContainer" id="signUpAnimBox"> <!-- 폼 박스를 포함한 회원가입 박스 -->
+          <div class="formContainer"> <!-- 로그인 박스 내의 폼 박스 -->
+            <button type="button" class="exit_Btn" id="loginExit" onclick="containerExitBtn()">X</button>
+            <form name="signUpForm" action="" method=""> <!-- 회원가입 항목 폼 -->
+              
+              <div class="formTitle">
+                <p>회원가입</p>
+              </div>
+              <div>
+                <div> <!-- 아이디 -->
+                  <a class="itemTextInform">ID</a>
+                </div>
+                <div>
+                  <input type="text" class="formInput" id="signUpIDInput" name="name" placeholder="ID를 입력하세요">
+                </div>
+              </div>
+              <div style="height: 15px;"></div>
+              <div>
+                <div> <!-- password -->
+                  <a class="itemTextInform">Password</a>
+                </div>
+                <div>
+                  <input type="password" class="formInput" id="signUpPWInput" name="password" placeholder="비밀번호를 입력하세요">
+                </div>
+              </div>
+              <div style="height: 15px;"></div>
+               <!-- password -->
+              <!-- <div>
+                <div>
+                  <a class="itemTextInform">Confirm Password</a>
+                </div>
+                <div>
+                  <input type="password" class="formInput" name="password" placeholder="비밀번호를 한번 더 입력하세요">
+                </div>
+              </div> -->
+
+                <div> <!-- 확인버튼 -->
+                  <button type="button" class="formSubmitBtn" id="myAcount_Close_Btn" onclick="completeUserCheck()">확인</button>
+                </div>
+            </form>
+          </div>
+        </div>
+        <div class="blurBox"></div>
+    </div>
+
+    <div id="loginMainContainer"> 
+        <div class="logInContainer" id="loginAnimBox">
+          <div class="formContainer">
+            <button type="button" class="exit_Btn" id="loginExit" onclick="containerExitBtn()">X</button>
+            <form name="logInForm" action="" method=""> 
+              
+              <div class="formTitle">
+                <p>로그인</p>
+              </div>
+              <div>
+                <div>
+                  <a class="itemTextInform">ID</a>
+                </div>
+                <div>
+                  <input type="text" class="formInput" name="name" placeholder="ID를 입력하세요">
+                </div>
+              </div>
+              <div style="height: 15px;"></div>
+              <div>
+                <div>
+                  <a class="itemTextInform">Password</a>
+                </div>
+                <div>
+                  <input type="password" class="formInput" name="password" placeholder="비밀번호를 입력하세요">
+                </div>
+              </div>
+              <div style="height: 15px;"></div>
+
+                <div>
+                  <button type="button" class="formSubmitBtn" id="myAcount_Close_Btn" onclick="logInSubmit()">확인</button>
+                </div>
+            </form>
+          </div>
+        </div>
+        <div class="blurBox"></div>
+    </div>
+
+    <script src="./signup.js" type="text/javascript"></script>
+</body>
+</html>
